@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import {
@@ -26,7 +27,7 @@ type ImageInputProps = {
   error?: string;
 };
 
-export const ImageInput = ({
+export function ImageInput({
   onChange = () => {},
   disabled,
   value = [],
@@ -36,13 +37,13 @@ export const ImageInput = ({
   isMultiple = true,
   placeholder,
   error,
-}: ImageInputProps) => {
+}: ImageInputProps) {
   const onDrop = useCallback(
     async (files: File[]) => {
       const newImages = isMultiple ? [...value, files[0]] : [files[0]];
       onChange(newImages);
     },
-    [isMultiple, onChange, value],
+    [isMultiple, onChange, value]
   );
 
   const isDisabled = disabled || maxFiles === value?.length;
@@ -72,7 +73,7 @@ export const ImageInput = ({
         <div
           className={classNames(
             'border-brand-gray4 block rounded-xl border bg-gray-100 p-2',
-            { 'border-rose-500': !!error },
+            { 'border-rose-500': !!error }
           )}
           {...getRootProps()}
         >
@@ -141,4 +142,4 @@ export const ImageInput = ({
   };
 
   return <>{getUploadComponent()}</>;
-};
+}

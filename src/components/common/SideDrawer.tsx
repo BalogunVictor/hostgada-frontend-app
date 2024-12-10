@@ -1,6 +1,12 @@
 'use client';
+
 import React, { Fragment, ReactNode } from 'react';
-import { Dialog, Transition } from '@headlessui/react';
+import {
+  Dialog,
+  DialogPanel,
+  Transition,
+  TransitionChild,
+} from '@headlessui/react';
 import classNames from 'classnames';
 
 type DashboardMobileDrawerProps = {
@@ -10,16 +16,16 @@ type DashboardMobileDrawerProps = {
   position?: 'left' | 'right';
 };
 
-export const SideDrawer = ({
+export function SideDrawer({
   onClose,
   open,
   children,
   position = 'left',
-}: DashboardMobileDrawerProps) => {
+}: DashboardMobileDrawerProps) {
   return (
-    <Transition.Root as={Fragment} show={open}>
+    <Transition as={Fragment} show={open}>
       <Dialog as="div" className="relative z-50" onClose={onClose}>
-        <Transition.Child
+        <TransitionChild
           as={Fragment}
           enter="transition-opacity ease-linear duration-300"
           enterFrom="opacity-0"
@@ -29,7 +35,7 @@ export const SideDrawer = ({
           leaveTo="opacity-0"
         >
           <div className="fixed inset-0 bg-gray-900/80" />
-        </Transition.Child>
+        </TransitionChild>
 
         <div
           className={classNames('fixed inset-0 flex', {
@@ -37,8 +43,8 @@ export const SideDrawer = ({
             'justify-start': position === 'left',
           })}
         >
-          <Transition.Child
-            as={Fragment}
+          <TransitionChild
+            as="div"
             enter="transition ease-in-out duration-300 transform"
             enterFrom={classNames({
               '-translate-x-full': position === 'left',
@@ -52,10 +58,10 @@ export const SideDrawer = ({
               'translate-x-full': position === 'right',
             })}
           >
-            <Dialog.Panel as={Fragment}>{children}</Dialog.Panel>
-          </Transition.Child>
+            <DialogPanel as={Fragment}>{children}</DialogPanel>{' '}
+          </TransitionChild>
         </div>
       </Dialog>
-    </Transition.Root>
+    </Transition>
   );
-};
+}

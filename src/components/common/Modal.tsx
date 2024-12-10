@@ -1,4 +1,5 @@
 'use client';
+
 import { Fragment, ReactNode } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import classNames from 'classnames';
@@ -13,7 +14,7 @@ type Props = {
   isCentered?: boolean;
 };
 
-export const Modal = ({
+export function Modal({
   isOpen,
   onClose,
   children,
@@ -21,7 +22,7 @@ export const Modal = ({
   header,
   reset,
   isCentered = true,
-}: Props) => {
+}: Props) {
   const handleClose = () => {
     if (typeof reset === 'function') reset();
     if (typeof onClose === 'function') onClose();
@@ -45,7 +46,7 @@ export const Modal = ({
           <div
             className={classNames(
               `flex h-full justify-center overflow-hidden md:p-4`,
-              { 'lg:items-center': isCentered },
+              { 'lg:items-center': isCentered }
             )}
           >
             <Transition.Child
@@ -60,7 +61,7 @@ export const Modal = ({
               <Dialog.Panel
                 className={classNames(
                   'relative flex max-h-full w-full max-w-lg transform flex-col rounded-lg bg-white p-4 shadow-xl transition-all',
-                  className,
+                  className
                 )}
               >
                 <div>{header}</div>
@@ -74,4 +75,4 @@ export const Modal = ({
       </Dialog>
     </Transition.Root>
   );
-};
+}

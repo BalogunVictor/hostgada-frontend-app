@@ -34,7 +34,7 @@ const inputStyles = cva(
         sm: 'h-10',
       },
     },
-  },
+  }
 );
 
 export type InputProps = Omit<VariantProps<typeof inputStyles>, 'error'> & {
@@ -51,7 +51,7 @@ export type InputProps = Omit<VariantProps<typeof inputStyles>, 'error'> & {
 export const PasswordInput = forwardRef<HTMLInputElement, InputProps>(
   (
     { label, error, intent, size, addon, className, leftIcon, ...rest },
-    ref,
+    ref
   ) => {
     const [showPassword, setShowPassword] = useState(false);
 
@@ -73,7 +73,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, InputProps>(
               inputStyles({ error: !!error, intent, size }),
               {
                 'pl-8': leftIcon,
-              },
+              }
             )}
             ref={ref}
             type={showPassword ? 'text' : 'password'}
@@ -112,7 +112,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, InputProps>(
         )}
       </label>
     );
-  },
+  }
 );
 
 PasswordInput.displayName = 'PasswordInput';

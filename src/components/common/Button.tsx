@@ -1,35 +1,41 @@
+/* eslint-disable react/button-has-type */
+
 'use client';
+
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import classNames from 'classnames';
 import Link, { LinkProps } from 'next/link';
 
 const buttonStyle = cva(
-  'rounded-lg  gap-2 flex justify-center items-center w-max transition-all duration-150  text-sm  disabled:opacity-70',
+  'rounded-lg gap-2 justify-center items-center inline-flex whitespace-nowrap w-max transition-all duration-150 text-p2 disabled:opacity-70',
   {
     defaultVariants: {
       block: false,
       kinds: 'primary',
-      rounded: false,
+      rounded: true,
       size: 'md',
     },
     variants: {
       block: { true: '!w-full' },
       kinds: {
-        normal: 'border-none hover:opacity-70',
-        primary: 'bg-brand-orange-800 text-white hover:bg-opacity-80 shadow-sm',
-        secondary: 'border border-gray-300 hover:opacity-70',
+        normal: 'border-none bg-orange-300 text-gray-500 hover:opacity-70',
+        primary: 'bg-orange-900 text-white hover:bg-opacity-80 shadow-sm',
+        secondary: 'border border-orange-700 text-white hover:opacity-70',
+        tertiary:
+          'border border-orange-700 bg-orange-50 text-orange-700 hover:opacity-70',
       },
       rounded: {
         true: '!rounded-full',
       },
       size: {
-        lg: 'px-3.5 py-2.5',
+        xl: 'p-6',
+        lg: 'px-8 py-2',
         md: 'px-4 py-2',
         sm: 'px-3.5 py-2.5',
       },
     },
-  },
+  }
 );
 
 type Props = VariantProps<typeof buttonStyle> & {
@@ -64,16 +70,15 @@ export function Button({
   ref,
   ...props
 }: ButtonProps | ButtonLinkProps) {
-  let inner = <>{children}</>;
-
   const style = classNames(
     buttonStyle({ block, kinds, rounded, size }),
-    className,
+    className
   );
+
   if (href) {
     return (
       <Link passHref {...(props as LinkProps)} className={style} href={href}>
-        {inner}
+        {children}
       </Link>
     );
   }
@@ -87,7 +92,7 @@ export function Button({
       {isLoading && (
         <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-white" />
       )}
-      {inner}
+      {children}
     </button>
   );
 }

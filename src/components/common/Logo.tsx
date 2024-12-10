@@ -2,11 +2,11 @@ import React from 'react';
 import classNames from 'classnames';
 import Image, { ImageProps } from 'next/image';
 
-export const Logo = ({
+export function Logo({
   className,
   type = 'white',
   ...rest
-}: Partial<ImageProps> & { type?: 'white' | 'black' }) => {
+}: Partial<ImageProps> & { type?: 'white' | 'black' }) {
   return (
     <Image
       alt="starlink"
@@ -17,4 +17,4 @@ export const Logo = ({
       className={classNames('max-w-full', className)}
     />
   );
-};
+}

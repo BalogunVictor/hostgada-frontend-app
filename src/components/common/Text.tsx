@@ -1,28 +1,22 @@
-import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
+import React, { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import classNames from 'classnames';
 
-type TitleProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLHeadingElement>,
-  HTMLHeadingElement
->;
+type TitleProps = {
+  children: ReactNode;
+} & DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
-export function Title({ className, ...rest }: TitleProps) {
+export function Title({ className, children, ...rest }: TitleProps) {
   return (
-    <h2
-      className={classNames(
-        className,
-        'text-lg font-bold text-gray-800 sm:text-2xl',
-      )}
-      {...rest}
-    />
+    <h2 className={classNames(className, 'text-h3 sm:text-h2')} {...rest}>
+      {children}
+    </h2>
   );
 }
 
-export function BodyText({ className, ...rest }: TitleProps) {
+export function BodyText({ className, children, ...rest }: TitleProps) {
   return (
-    <p
-      className={classNames(className, 'text-base font-normal text-gray-700')}
-      {...rest}
-    />
+    <p className={classNames(className, 'text-p2 sm:text-p1')} {...rest}>
+      {children}
+    </p>
   );
 }

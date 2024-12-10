@@ -26,7 +26,7 @@ const inputStyles = cva(
         sm: 'h-9',
       },
     },
-  },
+  }
 );
 
 export type PhoneInputProps = VariantProps<typeof inputStyles> &
@@ -36,7 +36,7 @@ export type PhoneInputProps = VariantProps<typeof inputStyles> &
     error?: string;
   };
 
-export const PhoneInput = ({
+export function PhoneInput({
   error,
   intent,
   size,
@@ -44,7 +44,7 @@ export const PhoneInput = ({
   defaultCountry = 'ng',
   value = '',
   ...props
-}: PhoneInputProps) => {
+}: PhoneInputProps) {
   const className = classNames(inputStyles({ intent, size }), {
     '!border-red-500': !!error,
   });
@@ -61,7 +61,7 @@ export const PhoneInput = ({
         countrySelectorStyleProps={{
           buttonClassName: classNames(
             '!h-full group-focus-within:!border-brand-textInput !px-1 !bg-gray-200 !border',
-            { '!border-red-500': !!error },
+            { '!border-red-500': !!error }
           ),
           dropdownArrowClassName: '!hidden',
         }}
@@ -77,4 +77,4 @@ export const PhoneInput = ({
       )}
     </label>
   );
-};
+}

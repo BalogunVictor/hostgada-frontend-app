@@ -32,7 +32,7 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>(
         )}
       </label>
     );
-  },
+  }
 );
 
 Checkbox.displayName = 'Checkbox';

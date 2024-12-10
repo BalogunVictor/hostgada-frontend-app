@@ -1,13 +1,12 @@
-import React, {
-  DetailedHTMLProps,
-  forwardRef,
-  InputHTMLAttributes,
-  ReactNode,
-  TextareaHTMLAttributes,
-} from 'react';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/solid';
 import { cva, VariantProps } from 'class-variance-authority';
 import classNames from 'classnames';
+import {
+  DetailedHTMLProps,
+  forwardRef,
+  ReactNode,
+  TextareaHTMLAttributes,
+} from 'react';
 
 const textareaStyles = cva(
   'w-full appearance-none focus:ring-0 rounded-md font-normal leading-loose px-3 text-sm',
@@ -32,7 +31,7 @@ const textareaStyles = cva(
         sm: 'h-28',
       },
     },
-  },
+  }
 );
 
 export type TextAreaProps = Omit<
@@ -63,7 +62,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
       ...rest
     },
-    ref,
+    ref
   ) => {
     return (
       <label className={classNames('group block', className)}>
@@ -75,7 +74,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         <div className="relative rounded-md">
           <textarea
             className={classNames(
-              textareaStyles({ error: !!error, intent, size }),
+              textareaStyles({ error: !!error, intent, size })
             )}
             ref={ref}
             {...rest}
@@ -95,7 +94,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         )}
       </label>
     );
-  },
+  }
 );
 
 TextArea.displayName = 'TextArea';

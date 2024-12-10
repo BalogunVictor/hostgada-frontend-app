@@ -15,15 +15,19 @@ const inputStyles = cva(
       error: false,
       intent: 'normal',
       size: 'md',
+      rounded: false,
     },
     variants: {
       error: {
         true: '!border-rose-500',
       },
       intent: {
-        fill: 'bg-gray-100 border-gray-200 focus:border-brand-textInput',
+        fill: 'bg-gray-300 border-none focus:border-orange-700',
         normal:
           'border-gray-300 border focus:!outline-none placeholder:text-gray-200  focus:border-brand-orange-800 bg-transparent',
+      },
+      rounded: {
+        true: '!rounded-full',
       },
       size: {
         lg: 'h-16',
@@ -31,7 +35,7 @@ const inputStyles = cva(
         sm: 'h-10',
       },
     },
-  },
+  }
 );
 
 export type InputProps = Omit<VariantProps<typeof inputStyles>, 'error'> & {
@@ -53,6 +57,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       label,
       error,
       intent,
+      rounded,
       size,
       rightIcon,
       addon,
@@ -61,7 +66,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       isLoading,
       ...rest
     },
-    ref,
+    ref
   ) => {
     return (
       <label className={classNames('group block', className)}>
@@ -72,24 +77,24 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
         <div className="relative rounded-md">
           {leftIcon && (
-            <div className="text-brand-textBlack pointer-events-none absolute inset-y-0 left-0 flex  items-center justify-center">
+            <div className="text-brand-textBlack pointer-events-none absolute inset-y-0 left-0 flex items-center justify-center px-2">
               {leftIcon}
             </div>
           )}
           <input
             className={classNames(
-              inputStyles({ error: !!error, intent, size }),
+              inputStyles({ error: !!error, intent, size, rounded }),
               {
                 'pl-8': leftIcon,
                 'pr-8': rightIcon,
-              },
+              }
             )}
             ref={ref}
             {...rest}
           />
 
           {rightIcon && (
-            <div className="text-brand-textBlack absolute inset-y-0 right-0 z-20 flex  items-center justify-center">
+            <div className="text-brand-textBlack absolute inset-y-0 right-0 z-20 flex  items-center justify-center px-2">
               {rightIcon}
             </div>
           )}
@@ -114,7 +119,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
       </label>
     );
-  },
+  }
 );
 
 Input.displayName = 'Input';

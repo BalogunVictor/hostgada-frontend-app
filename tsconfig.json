@@ -24,7 +24,8 @@
       "@ui": ["./src/components/common/"],
       "@type": ["./src/types/"],
       "@hook": ["./src/hooks/"],
-      "@util": ["./src/utils/"]
+      "@util": ["./src/utils/"],
+      "@asset": ["./src/assets/"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

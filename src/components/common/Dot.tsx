@@ -28,8 +28,8 @@ const dotStyle = cva('absolute z-10 rounded-full aspect-square', {
 type Props = VariantProps<typeof dotStyle> &
   DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-export const Dot = ({ className, kinds, size, position, ...rest }: Props) => {
+export function Dot({ className, kinds, size, position, ...rest }: Props) {
   return (
     <div className={dotStyle({ className, kinds, position, size })} {...rest} />
   );
-};
+}
