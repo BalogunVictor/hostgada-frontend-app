@@ -246,7 +246,7 @@ export default function Home() {
               {Events.map((event) => (
                 <div
                   key={event.id}
-                  cclassName="w-[350px] sm:w-[373px] h-[430px] my-6"
+                  className="w-[350px] sm:w-[373px] h-[430px] my-6"
                 >
                   <EventCard {...event} />
                 </div>
