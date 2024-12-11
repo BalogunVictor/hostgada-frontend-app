@@ -22,9 +22,9 @@ const inputStyles = cva(
         true: '!border-rose-500',
       },
       intent: {
-        fill: 'bg-gray-300 border-none focus:border-orange-700',
+        fill: 'bg-gray-300 border-none focus:!outline-none',
         normal:
-          'border-gray-300 border focus:!outline-none placeholder:text-gray-200  focus:border-brand-orange-800 bg-transparent',
+          'border-gray-300 border focus:!outline-none placeholder:text-transparent focus:border-orange-800 bg-transparent',
       },
       rounded: {
         true: '!rounded-full',
@@ -69,43 +69,40 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     return (
-      <label className={classNames('group block', className)}>
+      <label className={classNames('relative block', className)}>
+        <input
+          className={classNames(
+            inputStyles({ error: !!error, intent, size, rounded }),
+            'peer',
+            {
+              'pl-8': leftIcon,
+              'pr-8': rightIcon,
+            }
+          )}
+          ref={ref}
+          placeholder=" "
+          {...rest}
+        />
         {label && (
-          <p className="mb-2 block text-sm font-medium leading-6 text-gray-700">
+          <span className="absolute left-3 top-2 text-sm text-gray-500 transition-all duration-200 transform scale-75 -translate-y-4 bg-white px-1 peer-placeholder-shown:translate-y-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-gray-400 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:text-brand-orange-800">
             {label}
-          </p>
+          </span>
         )}
-        <div className="relative rounded-md">
-          {leftIcon && (
-            <div className="text-brand-textBlack pointer-events-none absolute inset-y-0 left-0 flex items-center justify-center px-2">
-              {leftIcon}
-            </div>
-          )}
-          <input
-            className={classNames(
-              inputStyles({ error: !!error, intent, size, rounded }),
-              {
-                'pl-8': leftIcon,
-                'pr-8': rightIcon,
-              }
-            )}
-            ref={ref}
-            {...rest}
-          />
-
-          {rightIcon && (
-            <div className="text-brand-textBlack absolute inset-y-0 right-0 z-20 flex  items-center justify-center px-2">
-              {rightIcon}
-            </div>
-          )}
-
-          {isLoading && (
-            <div className="text-brand-textBlack absolute inset-y-0 right-0 z-20 mr-3 flex  items-center justify-center">
-              <div className="border-t-brand-blue h-4 w-4 animate-spin rounded-full border-2" />
-            </div>
-          )}
-        </div>
-
+        {leftIcon && (
+          <div className="text-brand-textBlack pointer-events-none absolute inset-y-0 left-0 flex items-center justify-center px-2">
+            {leftIcon}
+          </div>
+        )}
+        {rightIcon && (
+          <div className="text-brand-textBlack absolute inset-y-0 right-0 z-20 flex items-center justify-center px-2">
+            {rightIcon}
+          </div>
+        )}
+        {isLoading && (
+          <div className="text-brand-textBlack absolute inset-y-0 right-0 z-20 mr-3 flex  items-center justify-center">
+            <div className="border-t-brand-blue h-4 w-4 animate-spin rounded-full border-2" />
+          </div>
+        )}
         {error && (
           <p className="mt-2 flex items-center gap-x-1 text-sm text-rose-500">
             <ExclamationTriangleIcon className="h-4 w-4" />
