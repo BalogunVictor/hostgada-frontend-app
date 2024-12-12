@@ -75,8 +75,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             inputStyles({ error: !!error, intent, size, rounded }),
             'peer',
             {
-              'pl-8': leftIcon,
-              'pr-8': rightIcon,
+              'pl-12': leftIcon,
+              'pr-12': rightIcon,
             }
           )}
           ref={ref}
@@ -89,12 +89,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           </span>
         )}
         {leftIcon && (
-          <div className="text-brand-textBlack pointer-events-none absolute inset-y-0 left-0 flex items-center justify-center px-2">
+          <div className="text-brand-textBlack pointer-events-none absolute inset-y-0 left-0 flex items-center justify-center px-6">
             {leftIcon}
           </div>
         )}
         {rightIcon && (
-          <div className="text-brand-textBlack absolute inset-y-0 right-0 z-20 flex items-center justify-center px-2">
+          <div className="text-brand-textBlack absolute inset-y-0 right-0 z-20 flex items-center justify-center px-6">
             {rightIcon}
           </div>
         )}
