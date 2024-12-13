@@ -17,11 +17,12 @@ import Places from 'src/dummyPlaces.json';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { PlacesResponsive, responsive } from 'src/components/BreakPoints';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import FilterDropDown from 'src/components/FilterDropDown';
 import HostCard from 'src/components/HostCard';
 import Footer from 'src/components/Footer';
+import ProgressBar from '@ramonak/react-progress-bar';
 
 export default function Home() {
   const { width } = useWindowSize();
@@ -83,6 +84,15 @@ export default function Home() {
     }
   };
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const totalPlaces = Places.length;
+  const progressPercentage = ((currentIndex + 1) / totalPlaces) * 100;
+
+  const handleCardClick = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   return (
     <main>
       {/* First Section */}
@@ -110,11 +120,11 @@ export default function Home() {
             </BodyText>
             <Link href={Pages.discover}>
               <Button className="mt-6">
-                <span className="flex items-center gap-4">
+                <span className="flex items-center gap-4 p-1">
                   Explore Experience{' '}
                   <Image
-                    width={50}
-                    height={50}
+                    width={30}
+                    height={30}
                     src={LocationImage}
                     alt="icon"
                   />
@@ -157,7 +167,7 @@ export default function Home() {
               {Events.map((event) => (
                 <div
                   key={event.id}
-                  className="w-[350px] sm:w-[373px] h-[430px] my-6"
+                  className="w-[100%] sm:w-[90%] h-[430px] my-6"
                 >
                   <EventCard {...event} />
                 </div>
@@ -206,7 +216,7 @@ export default function Home() {
               {Events.map((event) => (
                 <div
                   key={event.id}
-                  className="w-[350px] sm:w-[373px] h-[430px] my-6"
+                  className="w-[100%] sm:w-[90%] h-[430px] my-6"
                 >
                   <EventCard {...event} />
                 </div>
@@ -246,7 +256,7 @@ export default function Home() {
               {Events.map((event) => (
                 <div
                   key={event.id}
-                  className="w-[350px] sm:w-[373px] h-[430px] my-6"
+                  className="w-[100%] sm:w-[90%] h-[430px] my-6"
                 >
                   <EventCard {...event} />
                 </div>
@@ -381,10 +391,12 @@ export default function Home() {
                   'smallDestop',
                   'superLargeDesktop',
                 ]}
+                afterChange={(currentSlide) => setCurrentIndex(currentSlide)}
               >
-                {Places.map((place) => (
+                {Places.map((place, index) => (
                   <div
-                    className="w-[300px] h-[357px] bg-cover bg-center m-0 p-4 flex flex-col justify-between"
+                    onClick={() => handleCardClick(index)}
+                    className="w-[100%] sm:w-[90%] h-[357px] bg-cover bg-center m-0 p-4 flex flex-col justify-between"
                     key={place.id}
                     style={{
                       backgroundImage: "url('/landingPage.webp')",
@@ -401,6 +413,16 @@ export default function Home() {
                   </div>
                 ))}
               </Carousel>
+              <div className="my-10">
+                <ProgressBar
+                  bgColor="#E45F01"
+                  baseBgColor="#FFF0E6"
+                  height="10px"
+                  completed={progressPercentage}
+                  maxCompleted={100}
+                  isLabelVisible={false}
+                />
+              </div>
             </div>
           </div>
         </Wrapper>

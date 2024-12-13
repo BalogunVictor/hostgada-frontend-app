@@ -56,9 +56,10 @@ function Header() {
           <HiMenuAlt4 className="text-orange-700" />
         </span>
 
-        <div className="lg:flex space-x-4 max-lg:hidden w-[330px]">
+        <div className="lg:flex max-lg:hidden ">
           <Input
             rounded
+            className="w-[400px]"
             intent="fill"
             placeholder="Search..."
             leftIcon={<IoSearch className="text-orange-900" />}
@@ -85,12 +86,7 @@ function Header() {
           </Link>
         </div>
 
-        {/* Sidebar for Small Screens */}
-        <SideDrawer
-          open={sidebarOpen}
-          onClose={toggleSidebar}
-          position="right" // or "right"
-        >
+        <SideDrawer open={sidebarOpen} onClose={toggleSidebar} position="right">
           <div className="flex flex-col items-center justify-center gap-2 text-white text-p1 mx-2 mt-10">
             <div className="flex flex-col gap-4">
               <Link href={Pages.signup}>

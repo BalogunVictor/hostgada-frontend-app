@@ -38,10 +38,10 @@ function EventCard({
       />
       <div className="space-y-2 py-4">
         <div className="flex justify-between">
-          <BodyText className="!font-semibold">{title}</BodyText>
+          <BodyText className="!font-semibold !text-p3">{title}</BodyText>
           <VerifiedIcon />
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           <LocationIcon />
           <BodyText>{location}</BodyText>
         </div>
@@ -49,7 +49,12 @@ function EventCard({
           <BodyText>
             {date} <span className="font-semibold px-1">{time}</span>
           </BodyText>
-          <Button kinds="tertiary" className="!text-black" disabled={isSoldOut}>
+          <Button
+            size="sm"
+            kinds="tertiary"
+            className="!text-black"
+            disabled={isSoldOut}
+          >
             {isSoldOut ? 'Sold out' : 'Buy now'}
           </Button>
         </div>
