@@ -8,7 +8,7 @@ type Props = Omit<
   DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
   'type'
 > & {
-  label?: string;
+  label?: any;
   type?: 'radio' | 'checkbox';
 };
 
@@ -18,7 +18,7 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>(
       <label className="flex items-center gap-3">
         <input
           aria-describedby="comments-description"
-          className="h-4 w-4 rounded border-gray-300 text-brand-orange-800 focus:ring-brand-orange-800"
+          className="h-4 w-4 rounded border-gray-300 text-orange-800 focus:ring-orange-800"
           id="comments"
           name="comments"
           ref={ref}
