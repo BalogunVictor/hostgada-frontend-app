@@ -1,14 +1,14 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useCallback } from 'react';
-import { useDropzone } from 'react-dropzone';
 import {
-  CloudArrowUpIcon,
   DocumentIcon,
   ExclamationTriangleIcon,
   XMarkIcon,
 } from '@heroicons/react/24/solid';
 import classNames from 'classnames';
+import React, { useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
 
+import ImageUploadIcon from 'src/assets/icons/ImageUploadIcon';
 import { BodyText } from './Text';
 
 const accept = {
@@ -70,27 +70,27 @@ export function ImageInput({
 
     return (
       <div className="relative">
+        {label && (
+          <span className="flex text-gray-400  items-center gap-2 text-sm font-medium leading-6">
+            {label}
+          </span>
+        )}
+
         <div
           className={classNames(
-            'border-brand-gray4 block rounded-xl border bg-gray-100 p-2',
+            'border-gray-400 block rounded-xl border border-dashed p-2',
             { 'border-rose-500': !!error }
           )}
           {...getRootProps()}
         >
-          {label && (
-            <span className="flex items-center gap-2 text-sm font-medium leading-6">
-              {label}
-            </span>
-          )}
-
           <div className="relative">
-            <label className="block py-6 text-center">
-              <CloudArrowUpIcon className="mx-auto h-8 w-8" />
-              <span className="block py-2 text-sm font-medium sm:text-sm sm:leading-6">
+            <label className="block py-4 text-center">
+              <ImageUploadIcon className="mx-auto" />
+              <span className="block py-2 text-sm text-gray-400 font-medium sm:text-sm sm:leading-6">
                 {placeholder}
               </span>
-              <BodyText className="text-center !text-sm text-gray-600 ">
-                Supports PDF, JPEG & PNG
+              <BodyText className="text-center !text-sm text-gray-400 ">
+                Supports JPEG & PNG
               </BodyText>
               <input
                 className="sr-only"
@@ -110,10 +110,10 @@ export function ImageInput({
             >
               {value.map((image, index) => (
                 <div
-                  className="gap-z-3 bg-brand-green-700 relative mt-2 flex justify-between overflow-hidden rounded-md p-2"
+                  className="gap-z-3 border-gray-400 border border-dashed  relative mt-2 flex justify-between overflow-hidden rounded-md p-2"
                   key={index}
                 >
-                  <BodyText className="flex gap-x-1 text-sm text-white">
+                  <BodyText className="flex gap-x-1 text-sm text-green-700">
                     <DocumentIcon className="h-5 w-5" />
                     {image instanceof File ? image.name : image}
                   </BodyText>
@@ -123,7 +123,7 @@ export function ImageInput({
                     }
                     type="button"
                   >
-                    <XMarkIcon className="h-5 w-5 text-white" />
+                    <XMarkIcon className="h-5 w-5 text-red-600" />
                   </button>
                 </div>
               ))}
