@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React, { memo, SVGProps } from 'react';
 
-function Close() {
+function Close(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,6 +10,7 @@ function Close() {
       stroke="currentColor"
       width="30"
       height="30"
+      {...props}
     >
       <path
         strokeLinecap="round"

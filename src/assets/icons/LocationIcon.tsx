@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React, { memo, SVGProps } from 'react';
 
-function Location() {
+function Location(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="20"
@@ -8,6 +8,7 @@ function Location() {
       viewBox="0 0 20 21"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <rect y="0.5" width="20" height="20" rx="10" fill="#E8E8E8" />
       <path
