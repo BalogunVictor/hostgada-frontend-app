@@ -2,9 +2,19 @@ const Pages = {
   homePage: '/',
   discover: '/discover',
   bookings: '/bookings',
-  login: '/login',
+  hostPeople: '/hostpeople',
+  onBoarding: '/on-boarding',
+  signin: '/signin',
+  hostSignIn: '/host/signin',
   signup: '/signup',
-  hostpeople: '/hostpeople',
+  hostSignUp: '/host/signup',
+  guestInfo: '/info',
+  hostInfo: '/host/info',
+  hostDetails: '/host/details',
+  verification: '/verification',
+  hostVerification: '/host/verification',
+  hostCreated: '/host-created',
+  guestCreated: '/guest-created',
 };
 
 export default Pages;
