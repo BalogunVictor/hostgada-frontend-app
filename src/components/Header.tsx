@@ -68,17 +68,17 @@ function Header() {
         </div>
 
         <div className="lg:flex items-center space-x-4 max-lg:hidden">
-          <Link href={Pages.hostpeople}>
+          <Link href={Pages.hostPeople}>
             <span className="transition-all duration-500 ease-in-out mt-1">
               Host people
             </span>
           </Link>
-          <Link href={Pages.login}>
+          <Link href={Pages.signin}>
             <span className="transition-all duration-500 ease-in-out mt-1">
               Log in
             </span>
           </Link>
-          <Link href={Pages.signup}>
+          <Link href={Pages.onBoarding}>
             <Button size="lg" kinds="tertiary">
               {' '}
               Sign Up
@@ -89,18 +89,18 @@ function Header() {
         <SideDrawer open={sidebarOpen} onClose={toggleSidebar} position="right">
           <div className="flex flex-col items-center justify-center gap-2 text-white text-p1 mx-2 mt-10">
             <div className="flex flex-col gap-4">
-              <Link href={Pages.signup}>
+              <Link href={Pages.onBoarding}>
                 <Button size="lg" kinds="tertiary">
                   {' '}
                   Sign Up
                 </Button>
               </Link>
-              <Link href={Pages.login}>
+              <Link href={Pages.signin}>
                 <span className="transition-all duration-500 ease-in-out mt-1">
                   Log in
                 </span>
               </Link>
-              <Link href={Pages.hostpeople}>
+              <Link href={Pages.hostPeople}>
                 <span className="transition-all duration-500 ease-in-out mt-1">
                   Host people
                 </span>
