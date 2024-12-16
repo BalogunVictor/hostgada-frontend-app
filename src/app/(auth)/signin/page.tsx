@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@ui/Button';
+import { Checkbox } from '@ui/Checkbox';
 import { Input } from '@ui/Input';
 import { PasswordInput } from '@ui/PasswordInput';
 import { BodyText, Title } from '@ui/Text';
@@ -23,6 +24,14 @@ function page() {
           <form className="space-y-6 max-w-md">
             <Input label="Email Address" />
             <PasswordInput label="Password" />
+            <div className="flex items-center justify-between">
+              <Checkbox label="Remember me" />
+              <Link href={Pages.forgotPassword}>
+                <BodyText className="!text-orange-700">
+                  Forgot Password
+                </BodyText>
+              </Link>
+            </div>
             <Link href={Pages.homePage}>
               <Button className="!w-full !my-14">Sign in</Button>
             </Link>

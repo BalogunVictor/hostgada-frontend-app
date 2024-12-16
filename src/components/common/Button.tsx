@@ -30,9 +30,9 @@ const buttonStyle = cva(
       },
       size: {
         xl: 'p-6',
-        lg: 'px-12 py-1',
-        md: 'px-8 py-1',
-        sm: 'px-4 py-1',
+        lg: 'px-12 py-2',
+        md: 'px-8 py-2',
+        sm: 'px-4 py-2',
       },
     },
   }
