@@ -23,6 +23,7 @@ import FilterDropDown from 'src/components/FilterDropDown';
 import HostCard from 'src/components/HostCard';
 import Footer from 'src/components/Footer';
 import ProgressBar from '@ramonak/react-progress-bar';
+import Motion from 'src/layout/motion';
 
 export default function Home() {
   const { width } = useWindowSize();
@@ -94,7 +95,7 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <Motion>
       {/* First Section */}
       <section>
         <div
@@ -430,6 +431,6 @@ export default function Home() {
       <footer>
         <Footer />
       </footer>
-    </main>
+    </Motion>
   );
 }

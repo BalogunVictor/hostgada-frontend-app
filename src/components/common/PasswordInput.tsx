@@ -83,7 +83,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
           </div>
         )}
         <button
-          className="text-brand-textBlack absolute inset-y-0 right-0 z-20 flex items-center justify-center px-4 text-sm font-medium leading-6 hover:opacity-70"
+          className="text-gray-400 absolute inset-y-0 right-0 z-20 flex items-center justify-center px-4 text-sm font-medium leading-6 hover:opacity-70"
           onClick={() => setShowPassword((prev) => !prev)}
           type="button"
         >

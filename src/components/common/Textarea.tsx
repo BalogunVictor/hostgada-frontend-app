@@ -1,12 +1,12 @@
-import { ExclamationTriangleIcon } from '@heroicons/react/24/solid';
-import { cva, VariantProps } from 'class-variance-authority';
-import classNames from 'classnames';
-import {
+import React, {
   DetailedHTMLProps,
   forwardRef,
   ReactNode,
   TextareaHTMLAttributes,
 } from 'react';
+import { ExclamationTriangleIcon } from '@heroicons/react/24/solid';
+import { cva, VariantProps } from 'class-variance-authority';
+import classNames from 'classnames';
 
 const textareaStyles = cva(
   'w-full appearance-none focus:ring-0 rounded-md font-normal leading-loose px-3 text-sm',
@@ -14,7 +14,7 @@ const textareaStyles = cva(
     defaultVariants: {
       error: false,
       intent: 'normal',
-      size: 'md',
+      size: 'sm',
     },
     variants: {
       error: {
@@ -23,7 +23,7 @@ const textareaStyles = cva(
       intent: {
         fill: 'bg-gray-100 border-gray-200 focus:border-brand-textInput',
         normal:
-          'border-gray-300 border focus:!outline-none placeholder:text-gray-200  focus:border-brand-orange-800 bg-transparent',
+          'border-gray-300 border focus:!outline-none placeholder:text-transparent focus:border-orange-800 bg-transparent',
       },
       size: {
         lg: 'h-36',
@@ -51,36 +51,23 @@ export type TextAreaProps = Omit<
   >;
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  (
-    {
-      label,
-      error,
-      intent,
-      size,
-      addon,
-      className,
-
-      ...rest
-    },
-    ref
-  ) => {
+  ({ label, error, intent, size, addon, className, ...rest }, ref) => {
     return (
-      <label className={classNames('group block', className)}>
+      <label className={classNames('relative block', className)}>
+        <textarea
+          className={classNames(
+            textareaStyles({ error: !!error, intent, size }),
+            'peer'
+          )}
+          ref={ref}
+          placeholder=" "
+          {...rest}
+        />
         {label && (
-          <p className="mb-2 block text-sm font-medium leading-6 text-gray-700">
+          <span className="absolute left-3 top-2 text-sm text-gray-500 transition-all duration-200 transform scale-75 -translate-y-4 bg-white px-1 peer-placeholder-shown:translate-y-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-gray-400 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:text-brand-orange-800">
             {label}
-          </p>
+          </span>
         )}
-        <div className="relative rounded-md">
-          <textarea
-            className={classNames(
-              textareaStyles({ error: !!error, intent, size })
-            )}
-            ref={ref}
-            {...rest}
-          />
-        </div>
-
         {error && (
           <p className="mt-2 flex items-center gap-x-1 text-sm text-rose-500">
             <ExclamationTriangleIcon className="h-4 w-4" />

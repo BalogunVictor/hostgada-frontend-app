@@ -28,3 +28,20 @@ body {
 ::-webkit-scrollbar-track {
   background-color: #f0f0f0;
 }
+
+.carousel .react-multi-carousel-dot button {
+  background: #fe974d;
+  border: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.carousel .react-multi-carousel-dot--active button {
+  background: #ffd2b3;
+  width: 20px;
+  height: 8px;
+  border-radius: 12px;
+}

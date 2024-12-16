@@ -15,6 +15,9 @@ const Pages = {
   hostVerification: '/host/verification',
   hostCreated: '/host-created',
   guestCreated: '/guest-created',
+  forgotPassword: '/forget-password',
+  resetPassword: '/reset-password',
+  resetCreated: '/reset-created',
 };
 
 export default Pages;
