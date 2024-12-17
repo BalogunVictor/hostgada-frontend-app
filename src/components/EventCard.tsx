@@ -30,7 +30,7 @@ function EventCard({
     <div className="w-full h-full bg-gray-100 rounded-md p-6 sm:p-4">
       <Image
         src={image}
-        className="rounded-md"
+        className="rounded-md w-full"
         objectFit="cover"
         width={344}
         height={192}
