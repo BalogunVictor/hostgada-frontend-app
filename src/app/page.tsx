@@ -114,7 +114,7 @@ export default function Home() {
             <Title className="text-orange-100">
               Host. Connect. <span className="text-orange-900">Earn.</span>
             </Title>
-            <BodyText>
+            <BodyText className="!text-p4">
               Turn your passion for hosting into a rewarding experience! Create
               unforgettable gatherings, connect with vibrant communities, and
               earn while doing what you love.
