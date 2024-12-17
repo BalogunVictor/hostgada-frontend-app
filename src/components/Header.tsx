@@ -6,8 +6,8 @@ import { SideDrawer } from '@ui/SideDrawer';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { HiMenuAlt4 } from 'react-icons/hi';
-import { IoSearch } from 'react-icons/io5';
 import HostgadaIcon from 'src/assets/icons/HostgadaIcon';
+import SearchIcon from 'src/assets/icons/SearchIcon';
 import SettingsIcon from 'src/assets/icons/SettingIcon';
 import Pages from 'src/routes/page.routes';
 
@@ -61,7 +61,7 @@ function Header() {
             className="w-[400px]"
             intent="fill"
             placeholder="Search..."
-            leftIcon={<IoSearch className="text-orange-900" />}
+            leftIcon={<SearchIcon />}
             rightIcon={<SettingsIcon />}
           />
         </div>
