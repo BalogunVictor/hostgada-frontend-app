@@ -53,7 +53,7 @@ function page() {
               </Link>
             </div>
             <div className="flex gap-4 pt-4">
-              <BodyText className="text-gray-400">Having an account?</BodyText>
+              <BodyText className="text-gray-400">Have an account?</BodyText>
               <Link href={Pages.signin}>
                 <BodyText className="!font-semibold text-orange-700">
                   Sign In
