@@ -15,7 +15,7 @@ export function Title({ className, children, ...rest }: TitleProps) {
 
 export function BodyText({ className, children, ...rest }: TitleProps) {
   return (
-    <p className={classNames(className, 'text-p2 sm:text-p1')} {...rest}>
+    <p className={classNames(className, 'text-p1')} {...rest}>
       {children}
     </p>
   );

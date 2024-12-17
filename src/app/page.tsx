@@ -99,9 +99,9 @@ export default function Home() {
       {/* First Section */}
       <section>
         <div
-          className="max-w-[2000px] h-[600px] bg-cover bg-center m-0 flex flex-col justify-between"
+          className="max-w-[2000px] h-[700px] object-cover bg-center m-0 flex flex-col justify-between"
           style={{
-            backgroundImage: "url('/landingPage.webp')",
+            backgroundImage: "url('/landingOverviewImage.webp')",
             borderBottomLeftRadius: 50,
             borderBottomRightRadius: 50,
           }}
@@ -151,30 +151,28 @@ export default function Home() {
               />
             )}
           </div>
-          <div className="lg:mx-10">
-            <Carousel
-              ref={carouselRef1}
-              responsive={responsive}
-              infinite
-              autoPlay={width < 650}
-              autoPlaySpeed={3000}
-              removeArrowOnDeviceType={[
-                'tablet',
-                'mobile',
-                'desktop',
-                'superLargeDesktop',
-              ]}
-            >
-              {Events.map((event) => (
-                <div
-                  key={event.id}
-                  className="w-[100%] sm:w-[90%] h-[430px] my-6"
-                >
-                  <EventCard {...event} />
-                </div>
-              ))}
-            </Carousel>
-          </div>
+          <Carousel
+            ref={carouselRef1}
+            responsive={responsive}
+            infinite
+            autoPlay={width < 650}
+            autoPlaySpeed={3000}
+            removeArrowOnDeviceType={[
+              'tablet',
+              'mobile',
+              'desktop',
+              'superLargeDesktop',
+            ]}
+          >
+            {Events.map((event) => (
+              <div
+                key={event.id}
+                className="w-[100%] sm:w-[90%] h-[430px] my-6"
+              >
+                <EventCard {...event} />
+              </div>
+            ))}
+          </Carousel>
         </Wrapper>
       </section>
 
@@ -200,30 +198,28 @@ export default function Home() {
             </div>
           </div>
           <hr className="text-gray-300 my-4" />
-          <div className="lg:mx-10">
-            <Carousel
-              ref={carouselRef2}
-              responsive={responsive}
-              infinite
-              autoPlay={width < 650}
-              autoPlaySpeed={3000}
-              removeArrowOnDeviceType={[
-                'tablet',
-                'mobile',
-                'desktop',
-                'superLargeDesktop',
-              ]}
-            >
-              {Events.map((event) => (
-                <div
-                  key={event.id}
-                  className="w-[100%] sm:w-[90%] h-[430px] my-6"
-                >
-                  <EventCard {...event} />
-                </div>
-              ))}
-            </Carousel>
-          </div>
+          <Carousel
+            ref={carouselRef2}
+            responsive={responsive}
+            infinite
+            autoPlay={width < 650}
+            autoPlaySpeed={3000}
+            removeArrowOnDeviceType={[
+              'tablet',
+              'mobile',
+              'desktop',
+              'superLargeDesktop',
+            ]}
+          >
+            {Events.map((event) => (
+              <div
+                key={event.id}
+                className="w-[100%] sm:w-[90%] h-[430px] my-6"
+              >
+                <EventCard {...event} />
+              </div>
+            ))}
+          </Carousel>
         </Wrapper>
       </section>
 
@@ -240,30 +236,28 @@ export default function Home() {
             )}
           </div>
           <hr className="text-gray-300 my-4" />
-          <div className="lg:mx-10">
-            <Carousel
-              ref={carouselRef3}
-              responsive={responsive}
-              infinite
-              autoPlay={width < 650}
-              autoPlaySpeed={3000}
-              removeArrowOnDeviceType={[
-                'tablet',
-                'mobile',
-                'desktop',
-                'superLargeDesktop',
-              ]}
-            >
-              {Events.map((event) => (
-                <div
-                  key={event.id}
-                  className="w-[100%] sm:w-[90%] h-[430px] my-6"
-                >
-                  <EventCard {...event} />
-                </div>
-              ))}
-            </Carousel>
-          </div>
+          <Carousel
+            ref={carouselRef3}
+            responsive={responsive}
+            infinite
+            autoPlay={width < 650}
+            autoPlaySpeed={3000}
+            removeArrowOnDeviceType={[
+              'tablet',
+              'mobile',
+              'desktop',
+              'superLargeDesktop',
+            ]}
+          >
+            {Events.map((event) => (
+              <div
+                key={event.id}
+                className="w-[100%] sm:w-[90%] h-[430px] my-6"
+              >
+                <EventCard {...event} />
+              </div>
+            ))}
+          </Carousel>
         </Wrapper>
       </section>
 

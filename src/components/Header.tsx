@@ -3,13 +3,12 @@
 import { Button } from '@ui/Button';
 import { Input } from '@ui/Input';
 import { SideDrawer } from '@ui/SideDrawer';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { IoSearch } from 'react-icons/io5';
-import { VscSettings } from 'react-icons/vsc';
-import { HostgadaLogo } from 'src/assets/images';
+import HostgadaIcon from 'src/assets/icons/HostgadaIcon';
+import SettingsIcon from 'src/assets/icons/SettingIcon';
 import Pages from 'src/routes/page.routes';
 
 function Header() {
@@ -40,12 +39,12 @@ function Header() {
       <nav className="flex items-center justify-between py-4 px-8">
         <div className="flex items-center gap-6">
           <Link href="/">
-            <Image src={HostgadaLogo} alt="logo" className="w-24 max-sm:w-20" />
+            <HostgadaIcon />
           </Link>
           <div className="lg:flex space-x-4 max-lg:hidden">
             {Links.map((link) => (
               <Link key={link.name} href={link.href}>
-                <span className="transition-all duration-500 ease-in-out mt-1">
+                <span className="transition-all text-p2 duration-500 ease-in-out mt-1">
                   {link.name}
                 </span>
               </Link>
@@ -63,11 +62,11 @@ function Header() {
             intent="fill"
             placeholder="Search..."
             leftIcon={<IoSearch className="text-orange-900" />}
-            rightIcon={<VscSettings />}
+            rightIcon={<SettingsIcon />}
           />
         </div>
 
-        <div className="lg:flex items-center space-x-4 max-lg:hidden">
+        <div className="lg:flex items-center text-p2 space-x-4 max-lg:hidden">
           <Link href={Pages.hostPeople}>
             <span className="transition-all duration-500 ease-in-out mt-1">
               Host people

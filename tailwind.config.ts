@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import tailwindScrollbar from 'tailwind-scrollbar';
 
 const config: Config = {
   content: [
@@ -57,8 +58,8 @@ const config: Config = {
         h5: ['14px', { fontWeight: '600', lineHeight: '20px' }],
         h6: ['12px', { fontWeight: '500', lineHeight: '18px' }],
         h7: ['12px', { fontWeight: '600', lineHeight: '18px' }],
-        p1: ['15px', { fontWeight: '400', lineHeight: '24px' }],
-        p2: ['14px', { fontWeight: '400', lineHeight: '24px' }],
+        p1: ['14px', { fontWeight: '400', lineHeight: '24px' }],
+        p2: ['15px', { fontWeight: '500', lineHeight: '24px' }],
         p3: ['18px', { fontWeight: '400', lineHeight: '24px' }],
       },
     },
@@ -67,7 +68,7 @@ const config: Config = {
         borderColor: ['focus'], // Enable borderColor on focus state
       },
     },
-    plugins: [],
+    plugins: [tailwindScrollbar],
   },
 };
 export default config;

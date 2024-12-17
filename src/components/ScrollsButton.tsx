@@ -10,7 +10,7 @@ interface ScrollsButtonProps {
 function ScrollsButton({ onLeftClick, onRightClick }: ScrollsButtonProps) {
   return (
     <div>
-      <div className="flex gap-4 p-4">
+      <div className="flex gap-4">
         <Button size="xl" kinds="tertiary" onClick={onLeftClick}>
           <FaArrowLeft className="text-orange-500" />
         </Button>

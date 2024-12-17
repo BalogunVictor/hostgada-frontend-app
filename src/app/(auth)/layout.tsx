@@ -1,22 +1,28 @@
 'use client';
 
 import { Wrapper } from '@ui/Wrapper';
-import React, { ReactNode } from 'react';
+import Image from 'next/image';
+import { ReactNode } from 'react';
 import Carousel from 'react-multi-carousel';
-import { AuthResponsive } from 'src/components/BreakPoints';
 import 'react-multi-carousel/lib/styles.css';
-import Motion from 'src/layout/motion';
+import {
+  OnboardingOne,
+  OnboardingThree,
+  OnboardingTwo,
+} from 'src/assets/images';
+import { AuthResponsive } from 'src/components/BreakPoints';
 import { useWindowSize } from 'src/hooks/useWindowSize';
+import Motion from 'src/layout/motion';
 
 function Layout({ children }: { children: ReactNode }) {
   const { width } = useWindowSize();
-  const largeScreen = 1000;
+  const largeScreen = 1085;
   return (
     <Motion>
       <Wrapper>
-        <div className="flex min-h-screen">
+        <div className="flex p-4">
           {width > largeScreen ? (
-            <div className="w-1/2 min-h-full m-auto">
+            <div className="w-1/2 min-h-full">
               <Wrapper>
                 <Carousel
                   responsive={AuthResponsive}
@@ -33,26 +39,20 @@ function Layout({ children }: { children: ReactNode }) {
                     'superLargeDesktop',
                   ]}
                 >
-                  <div
-                    className="w-[100%] h-[800px] bg-cover bg-center m-0 p-4 flex flex-col justify-between"
-                    style={{
-                      backgroundImage: "url('/landingPage.webp')",
-                      borderRadius: 20,
-                    }}
+                  <Image
+                    src={OnboardingOne}
+                    alt="images"
+                    className="w-[100%] h-[800px] object-cover rounded-3xl"
                   />
-                  <div
-                    className="w-[100%] h-[800px] bg-cover bg-center m-0 p-4 flex flex-col justify-between"
-                    style={{
-                      backgroundImage: "url('/landingPage.webp')",
-                      borderRadius: 20,
-                    }}
+                  <Image
+                    src={OnboardingTwo}
+                    alt="images"
+                    className="w-[100%] h-[800px] object-cover rounded-3xl"
                   />
-                  <div
-                    className="w-[100%]  h-[800px] bg-cover bg-center m-0 p-4 flex flex-col justify-between"
-                    style={{
-                      backgroundImage: "url('/landingPage.webp')",
-                      borderRadius: 20,
-                    }}
+                  <Image
+                    src={OnboardingThree}
+                    alt="images"
+                    className="w-[100%] h-[800px] object-cover rounded-3xl"
                   />
                 </Carousel>
               </Wrapper>

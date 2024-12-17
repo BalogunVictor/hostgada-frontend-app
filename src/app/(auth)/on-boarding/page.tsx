@@ -13,9 +13,9 @@ function page() {
   return (
     <Motion>
       <Wrapper>
-        <div className="mt-10 space-y-8">
-          <div className="py-4 space-y-20 max-w-md">
-            <div className="space-y-4">
+        <div className="space-y-8">
+          <div className="space-y-10 max-w-md">
+            <div className="space-y-2">
               <Title className="!text-orange-800">Hostgada</Title>
               <BodyText>
                 Welcome aboard! To get started, let us <br /> know how you’ll be
@@ -52,7 +52,7 @@ function page() {
                 </div>
               </Link>
             </div>
-            <div className="flex gap-4 pt-8">
+            <div className="flex gap-4 pt-4">
               <BodyText className="text-gray-400">Having an account?</BodyText>
               <Link href={Pages.signin}>
                 <BodyText className="!font-semibold text-orange-700">

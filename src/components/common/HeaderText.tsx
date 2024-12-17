@@ -18,7 +18,7 @@ export function HeaderText({
   return (
     <div className={classNames('space-y-1 max-w-[350px]', className)} {...rest}>
       <h1 className="text-h4">{header}</h1>
-      {subtext && <p className="text-p2">{subtext}</p>}
+      {subtext && <p className="text-p1">{subtext}</p>}
     </div>
   );
 }
