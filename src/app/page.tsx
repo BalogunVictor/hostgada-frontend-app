@@ -96,7 +96,7 @@ export default function Home() {
 
   return (
     <Motion>
-      <Wrapper className="!max-w-[1500px]">
+      <Wrapper className="!max-w-[1600px]">
         {/* First Section */}
         <section>
           <div
@@ -423,10 +423,10 @@ export default function Home() {
             </div>
           </Wrapper>
         </section>
-        <footer>
-          <Footer />
-        </footer>
       </Wrapper>
+      <footer>
+        <Footer />
+      </footer>
     </Motion>
   );
 }
