@@ -185,7 +185,7 @@ export default function Home() {
                 Trending in: <span className="text-orange-700">Lagos</span>
                 <FaChevronDown className="text-orange-700" size={20} />
               </h1>
-              <p className="text-p2">These are occasions happening soon.</p>
+              <p className="text-p1">These are occasions happening soon.</p>
             </div>
             <div className="flex items-center">
               <FilterDropDown />
@@ -360,7 +360,7 @@ export default function Home() {
                 className="!max-w-[500px]"
                 header="Experience the Vibe, Anywhere You Are!"
               />
-              <div className="flex items-center">
+              <div className="flex items-center gap-4">
                 <BodyText className="!text-orange-700 !text-p3 !font-semibold">
                   See all
                 </BodyText>
