@@ -58,7 +58,7 @@ function Header() {
         <div className="lg:flex max-lg:hidden ">
           <Input
             rounded
-            className="w-[400px]"
+            className="w-[400px] 2xl:w-[700px]"
             intent="fill"
             placeholder="Search..."
             leftIcon={<SearchIcon />}

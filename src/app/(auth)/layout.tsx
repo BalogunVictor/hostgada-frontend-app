@@ -42,17 +42,17 @@ function Layout({ children }: { children: ReactNode }) {
                   <Image
                     src={OnboardingOne}
                     alt="images"
-                    className="w-[100%] h-[800px] object-cover rounded-3xl"
+                    className="w-[100%] h-[800px] 2xl:h-[1000px] object-cover rounded-3xl"
                   />
                   <Image
                     src={OnboardingTwo}
                     alt="images"
-                    className="w-[100%] h-[800px] object-cover rounded-3xl"
+                    className="w-[100%] h-[800px] 2xl:h-[1000px] object-cover rounded-3xl"
                   />
                   <Image
                     src={OnboardingThree}
                     alt="images"
-                    className="w-[100%] h-[800px] object-cover rounded-3xl"
+                    className="w-[100%] h-[800px] 2xl:h-[1000px] object-cover rounded-3xl"
                   />
                 </Carousel>
               </Wrapper>
