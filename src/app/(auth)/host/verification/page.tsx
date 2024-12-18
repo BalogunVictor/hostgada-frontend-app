@@ -12,7 +12,7 @@ function page() {
   return (
     <Motion>
       <Wrapper>
-        <div className="mt-10 space-y-8">
+        <div className="space-y-6">
           <div className="py-4">
             <Title>Email Verification</Title>
             <BodyText>
@@ -31,7 +31,7 @@ function page() {
               </BodyText>
             </div>
             <Link href={Pages.hostInfo}>
-              <Button className="!w-full !my-14">Verify account</Button>
+              <Button className="!w-full !my-8">Verify account</Button>
             </Link>
           </form>
         </div>

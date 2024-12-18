@@ -12,7 +12,7 @@ function page() {
   return (
     <Motion>
       <Wrapper>
-        <div className="mt-10 space-y-8">
+        <div className="space-y-8">
           <div className="py-4">
             <Title>Reset Password</Title>
             <BodyText>Enter your new password</BodyText>
@@ -22,7 +22,7 @@ function page() {
             <PasswordInput label="Confirm Password" />
 
             <Link href={Pages.hostInfo}>
-              <Button className="!w-full !my-14">Reset Password</Button>
+              <Button className="!w-full !my-8">Reset Password</Button>
             </Link>
           </form>
         </div>

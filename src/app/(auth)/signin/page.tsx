@@ -16,7 +16,7 @@ function page() {
   return (
     <Motion>
       <Wrapper>
-        <div className="mt-10 space-y-8">
+        <div className="space-y-8">
           <div className="py-4">
             <Title>Welcome</Title>
             <BodyText>Start your journey with us here.</BodyText>
@@ -33,7 +33,7 @@ function page() {
               </Link>
             </div>
             <Link href={Pages.homePage}>
-              <Button className="!w-full !my-14">Sign in</Button>
+              <Button className="!w-full !my-8">Sign in</Button>
             </Link>
             <div className="flex items-center gap-4">
               <hr className="bg-gray-300 flex-grow" />
@@ -48,7 +48,7 @@ function page() {
                 <GoogleIcon />
               </div>
             </div>
-            <div className="flex gap-4 pt-8">
+            <div className="flex gap-4 pt-4">
               <BodyText className="text-gray-400">
                 Don’t have an account?
               </BodyText>

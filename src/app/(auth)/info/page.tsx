@@ -14,7 +14,7 @@ function page() {
   return (
     <Motion>
       <Wrapper>
-        <div className="mt-10 space-y-8">
+        <div className="space-y-8">
           <div className="py-4">
             <Title>Personal Info</Title>
             <BodyText>Kindly fill the form carefully</BodyText>
@@ -43,7 +43,7 @@ function page() {
             />
 
             <Link href={Pages.guestCreated}>
-              <Button className="!w-full !my-14">Create my account</Button>
+              <Button className="!w-full !my-8">Create my account</Button>
             </Link>
 
             <div className="flex gap-4">
