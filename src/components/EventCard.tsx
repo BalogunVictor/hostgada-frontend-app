@@ -1,9 +1,9 @@
+import { VerifiedIcon } from '@asset/icons';
 import { Button } from '@ui/Button';
 import { BodyText } from '@ui/Text';
 import Image from 'next/image';
 import React from 'react';
 import LocationIcon from 'src/assets/icons/LocationIcon';
-import VerifiedIcon from 'src/assets/icons/VerifiedIcon';
 
 type EventCardProps = {
   image: string;

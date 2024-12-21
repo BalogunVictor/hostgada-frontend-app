@@ -18,6 +18,7 @@ const Pages = {
   forgotPassword: '/forget-password',
   resetPassword: '/reset-password',
   resetCreated: '/reset-created',
+  event: '/event',
 };
 
 export default Pages;

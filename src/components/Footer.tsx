@@ -4,7 +4,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div className="bg-gray-500 text-white px-4 mt-20">
+    <div className="bg-gray-700 text-white px-4 mt-20">
       <Wrapper className="flex flex-col md:flex-row h-full w-full items-center py-4">
         {/* Left Section */}
         <div className="w-full md:w-1/2 flex items-center justify-center md:justify-start mb-4 md:mb-0">

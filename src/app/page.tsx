@@ -170,7 +170,9 @@ export default function Home() {
           >
             {Events.map((event) => (
               <div key={event.id} className="w-[100%] sm:w-[90%] h-[430px]">
-                <EventCard {...event} />
+                <Link href={`${Pages.event}/${event.id}`}>
+                  <EventCard {...event} />
+                </Link>
               </div>
             ))}
           </Carousel>

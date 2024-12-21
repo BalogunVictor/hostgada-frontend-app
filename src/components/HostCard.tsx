@@ -1,8 +1,8 @@
+import { VerifiedIcon } from '@asset/icons';
 import { Button } from '@ui/Button';
 import { BodyText } from '@ui/Text';
 import React from 'react';
 import StarIcon from 'src/assets/icons/StarIcon';
-import VerifiedIcon from 'src/assets/icons/VerifiedIcon';
 
 function HostCard() {
   return (
