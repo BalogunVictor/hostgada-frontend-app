@@ -1,31 +1,30 @@
 'use client';
 
 import { CheckIcon, RadioIcon, VerifiedIcon } from '@asset/icons';
+import LocationIcon from '@asset/icons/LocationIcon';
+import StarIcon from '@asset/icons/StarIcon';
 import { landingPage, MapImage } from '@asset/images';
+import { responsive } from '@components/BreakPoints';
+import EventCard from '@components/EventCard';
+import Footer from '@components/Footer';
 import Header from '@components/Header';
+import ScrollsButton from '@components/ScrollsButton';
+import { Button } from '@ui/Button';
 import { HeaderText } from '@ui/HeaderText';
+import { Input } from '@ui/Input';
 import { BodyText } from '@ui/Text';
 import { Wrapper } from '@ui/Wrapper';
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
-import Events from 'src/dummyEvents.json';
-import Motion from 'src/layout/motion';
-import StarIcon from '@asset/icons/StarIcon';
-import { Button } from '@ui/Button';
-import ScrollsButton from '@components/ScrollsButton';
-import { useWindowSize } from 'src/hooks/useWindowSize';
-import { useRef, useState } from 'react';
-import EventCard from '@components/EventCard';
 import Link from 'next/link';
-import { responsive } from '@components/BreakPoints';
+import { notFound } from 'next/navigation';
+import { useRef, useState } from 'react';
 import Carousel from 'react-multi-carousel';
-import Pages from 'src/routes/page.routes';
 import 'react-multi-carousel/lib/styles.css';
-import Footer from '@components/Footer';
-import { Input } from '@ui/Input';
+import Events from 'src/dummyEvents.json';
+import { useWindowSize } from 'src/hooks/useWindowSize';
+import Motion from 'src/layout/motion';
+import Pages from 'src/routes/page.routes';
 import specialFeatures from '../../../dummyFeatures.json';
-import Map from '@components/Map';
-import LocationIcon from '@asset/icons/LocationIcon';
 
 interface EventProps {
   id: number;
@@ -199,7 +198,6 @@ export default function EventPage({ params }: EventPageProps) {
 
           <div className="flex-1 bg-gray-300 !text-gray-600 rounded-xl flex flex-col justify-between">
             <div className="m-4 sm:m-8">
-              <div className="flex"></div>
               <div className="flex flex-col sm:flex-row gap-2 justify-between sm:items-center">
                 <HeaderText header="Entry Pass Fee" className="text-h4" />
                 <div className="bg-white rounded-xl p-4">
