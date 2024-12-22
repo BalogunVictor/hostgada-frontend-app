@@ -1,7 +1,7 @@
 'use client';
 
 import { CheckIcon, RadioIcon, VerifiedIcon } from '@asset/icons';
-import { landingPage } from '@asset/images';
+import { landingPage, MapImage } from '@asset/images';
 import Header from '@components/Header';
 import { HeaderText } from '@ui/HeaderText';
 import { BodyText } from '@ui/Text';
@@ -14,7 +14,7 @@ import StarIcon from '@asset/icons/StarIcon';
 import { Button } from '@ui/Button';
 import ScrollsButton from '@components/ScrollsButton';
 import { useWindowSize } from 'src/hooks/useWindowSize';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import EventCard from '@components/EventCard';
 import Link from 'next/link';
 import { responsive } from '@components/BreakPoints';
@@ -22,7 +22,10 @@ import Carousel from 'react-multi-carousel';
 import Pages from 'src/routes/page.routes';
 import 'react-multi-carousel/lib/styles.css';
 import Footer from '@components/Footer';
+import { Input } from '@ui/Input';
 import specialFeatures from '../../../dummyFeatures.json';
+import Map from '@components/Map';
+import LocationIcon from '@asset/icons/LocationIcon';
 
 interface EventProps {
   id: number;
@@ -44,6 +47,7 @@ export default function EventPage({ params }: EventPageProps) {
   const numericId = parseInt(params.id, 10);
   const FoundItem = Events.find((event: EventProps) => event.id === numericId);
   const { width } = useWindowSize();
+  const [guestCount, setGuestCount] = useState<number>(1);
 
   const carouselRef = useRef<any>(null);
 
@@ -63,6 +67,20 @@ export default function EventPage({ params }: EventPageProps) {
       carouselRef.current.next();
     }
   };
+
+  const handleGuestCountChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const value =
+      event.target.value === '' ? 0 : parseInt(event.target.value, 10);
+    if (value === 0 || value >= 0) {
+      setGuestCount(value);
+    }
+  };
+
+  const incrementGuestCount = () => setGuestCount((prev) => prev + 1);
+  const decrementGuestCount = () =>
+    setGuestCount((prev) => Math.max(1, prev - 1));
 
   return (
     <Motion>
@@ -105,7 +123,7 @@ export default function EventPage({ params }: EventPageProps) {
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-4 py-4">
+        <div className="flex flex-col mt-4 sm:m-0 md:flex-row gap-4 py-4">
           <div className="flex-1">
             <HeaderText className="!max-w-full" header={FoundItem.title} />
             <BodyText>
@@ -180,12 +198,76 @@ export default function EventPage({ params }: EventPageProps) {
           </div>
 
           <div className="flex-1 bg-gray-300 !text-gray-600 rounded-xl flex flex-col justify-between">
-            <div className="flex justify-between items-center m-6">
-              <h1 className="text-h4">Entry Pass Fee</h1>
-              <div className="bg-white rounded-xl p-4">
-                <div className="flex items-center gap-2">
-                  <RadioIcon />
-                  <BodyText className="text-p4 font-bold">#1,500,000</BodyText>
+            <div className="m-4 sm:m-8">
+              <div className="flex"></div>
+              <div className="flex flex-col sm:flex-row gap-2 justify-between sm:items-center">
+                <HeaderText header="Entry Pass Fee" className="text-h4" />
+                <div className="bg-white rounded-xl p-4">
+                  <div className="flex justify-center items-center gap-2">
+                    <RadioIcon />
+                    <HeaderText header="#1,500,000" className="text-h4" />
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white w-full rounded-xl my-6">
+                <div className="p-2 sm:p-8">
+                  <HeaderText header="Number of guest" className="text-h4" />
+
+                  <div className="flex items-center justify-between gap-4 py-2 ">
+                    <Input
+                      type="number"
+                      className="w-1/2 !appearance-none"
+                      label="Number of guest"
+                      value={guestCount.toString()}
+                      onChange={handleGuestCountChange}
+                    />
+
+                    <div className="flex items-center gap-2">
+                      <Button
+                        size="sm"
+                        kinds="tertiary"
+                        className="!rounded-r-none"
+                        onClick={decrementGuestCount}
+                      >
+                        -
+                      </Button>
+                      <span className="px-4">{guestCount}</span>
+                      <Button
+                        size="sm"
+                        kinds="tertiary"
+                        className="!rounded-l-none"
+                        onClick={incrementGuestCount}
+                      >
+                        +
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-2 ">
+                    <div className="space-y-2 sm:w-1/2">
+                      <HeaderText header="Date" className="text-h4" />
+                      <Input label="Date" />
+                    </div>
+                    <div className="space-y-2 sm:w-1/2">
+                      <HeaderText header="Time" className="text-h4" />
+                      <Input label="Time" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <HeaderText header="Location" className="text-h4" />
+                    <div className="flex items-center gap-2">
+                      <LocationIcon />
+                      <BodyText>
+                        Tarkwa bay beach lagos Lagos, LG 23401
+                      </BodyText>
+                    </div>
+
+                    <Image src={MapImage} alt="map image" className="w-full" />
+                    {/* <Map latitude={6.40148} longitude={3.39527} /> */}
+                  </div>
+                  <Button size="lg" className="!w-full mt-32">
+                    Book Occasion
+                  </Button>
                 </div>
               </div>
             </div>

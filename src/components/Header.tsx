@@ -78,7 +78,7 @@ function Header() {
             </span>
           </Link>
           <Link href={Pages.onBoarding}>
-            <Button size="lg" kinds="tertiary">
+            <Button size="md" kinds="tertiary">
               {' '}
               Sign Up
             </Button>
