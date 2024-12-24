@@ -33,7 +33,7 @@ const config: Config = {
           700: '#4F4DCB',
         },
         gray: {
-          50: '#F9FAFB',
+          50: '#F1F1F1',
           100: '#F2F4F7',
           200: '#eaecf0',
           300: '#E8E8E8',
