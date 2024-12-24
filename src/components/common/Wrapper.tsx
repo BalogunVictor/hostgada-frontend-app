@@ -9,7 +9,7 @@ export function Wrapper({ className, ...rest }: WrapperProps) {
   return (
     <section
       className={classNames(
-        'mx-auto max-w-[2000px] px-4 sm:px-6 xl:px-8',
+        'mx-auto max-w-[2000px] px-4 sm:px-8 xl:px-20',
         className
       )}
       {...rest}

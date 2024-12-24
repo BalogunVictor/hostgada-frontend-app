@@ -27,7 +27,7 @@ function EventCard({
   isSoldOut,
 }: EventCardProps) {
   return (
-    <div className="w-full h-full bg-gray-100 rounded-md p-6 sm:p-4">
+    <div className="w-full h-full bg-gray-100 rounded-md p-4">
       <Image
         src={image}
         className="rounded-md w-full"

@@ -123,12 +123,12 @@ export default function Home() {
               earn while doing what you love.
             </BodyText>
             <Link href={Pages.discover}>
-              <Button className="mt-6">
-                <span className="flex items-center gap-4 p-1">
+              <Button className="mt-6 !px-0">
+                <span className="flex items-center gap-6 pl-4 pr-1">
                   Explore Experience{' '}
                   <Image
-                    width={30}
-                    height={30}
+                    width={40}
+                    height={40}
                     src={LocationImage}
                     alt="icon"
                   />
@@ -155,7 +155,7 @@ export default function Home() {
             )}
           </div>
         </Wrapper>
-        <div className="mx-4 sm:ml-6 xl:ml-8">
+        <div className="px-4 sm:pl-8 xl:pl-20">
           <Carousel
             ref={carouselRef1}
             responsive={responsive}
@@ -169,7 +169,7 @@ export default function Home() {
             ]}
           >
             {Events.map((event) => (
-              <div key={event.id} className="w-[100%] sm:w-[90%] h-[430px]">
+              <div key={event.id} className="w-[100%] sm:w-[90%] h-[400px]">
                 <Link href={`${Pages.event}/${event.id}`}>
                   <EventCard {...event} />
                 </Link>
@@ -202,7 +202,7 @@ export default function Home() {
           </div>
           <hr className="text-gray-300 my-8" />
         </Wrapper>
-        <div className="mx-4 sm:ml-6 xl:ml-8">
+        <div className="px-4 sm:pl-8 xl:pl-20">
           <Carousel
             ref={carouselRef2}
             responsive={responsive}
@@ -216,7 +216,7 @@ export default function Home() {
             ]}
           >
             {Events.map((event) => (
-              <div key={event.id} className="w-[100%] sm:w-[90%] h-[430px]">
+              <div key={event.id} className="w-[100%] sm:w-[90%] h-[400px]">
                 <EventCard {...event} />
               </div>
             ))}
@@ -238,7 +238,7 @@ export default function Home() {
           </div>
           <hr className="text-gray-300 my-8" />
         </Wrapper>
-        <div className="mx-4 sm:ml-6 xl:ml-8">
+        <div className="px-4 sm:pl-8 xl:pl-20">
           <Carousel
             ref={carouselRef3}
             responsive={responsive}
@@ -252,7 +252,7 @@ export default function Home() {
             ]}
           >
             {Events.map((event) => (
-              <div key={event.id} className="w-[100%] sm:w-[90%] h-[430px]">
+              <div key={event.id} className="w-[100%] sm:w-[90%] h-[400px]">
                 <EventCard {...event} />
               </div>
             ))}
