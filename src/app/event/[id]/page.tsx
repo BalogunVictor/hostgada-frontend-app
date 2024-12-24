@@ -3,7 +3,7 @@
 import { CheckIcon, RadioIcon, VerifiedIcon } from '@asset/icons';
 import LocationIcon from '@asset/icons/LocationIcon';
 import StarIcon from '@asset/icons/StarIcon';
-import { landingPage, MapImage } from '@asset/images';
+import { landingPage, MapImage, OnboardingOne } from '@asset/images';
 import { responsive } from '@components/BreakPoints';
 import EventCard from '@components/EventCard';
 import Footer from '@components/Footer';
@@ -24,6 +24,7 @@ import Events from 'src/dummyEvents.json';
 import { useWindowSize } from 'src/hooks/useWindowSize';
 import Motion from 'src/layout/motion';
 import Pages from 'src/routes/page.routes';
+import { Modal } from '@ui/Modal';
 import specialFeatures from '../../../dummyFeatures.json';
 
 interface EventProps {
@@ -47,6 +48,7 @@ export default function EventPage({ params }: EventPageProps) {
   const FoundItem = Events.find((event: EventProps) => event.id === numericId);
   const { width } = useWindowSize();
   const [guestCount, setGuestCount] = useState<number>(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const carouselRef = useRef<any>(null);
 
@@ -81,12 +83,116 @@ export default function EventPage({ params }: EventPageProps) {
   const decrementGuestCount = () =>
     setGuestCount((prev) => Math.max(1, prev - 1));
 
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <Motion>
+      <Modal
+        className="m-5 h-fit !max-w-6xl"
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      >
+        <div className="flex gap-4 sm:p-4">
+          <div className="flex-1 hidden sm:flex ">
+            <div className="w-full space-y-6 !text-gray-600 bg-white rounded-xl p-4">
+              <HeaderText
+                header="You are almost there!"
+                subtext="We just need to confirm a few details so that your host can confirm your booking "
+              />
+
+              <div className="space-y-1">
+                <HeaderText header="Number of guest" className="text-h4" />
+                <Input
+                  type="number"
+                  label="Number of guest"
+                  value={guestCount.toString()}
+                  onChange={handleGuestCountChange}
+                  disabled
+                />
+              </div>
+              <div className="space-y-1">
+                <HeaderText header="Entry Pass" className="text-h4" />
+                <div className="border border-gray-300 w-full rounded-xl">
+                  <div className="flex justify-between p-6">
+                    <HeaderText
+                      header="#1,500,000"
+                      subtext="This entry pass gives you access to the event location"
+                      className="text-h4 w-1/2"
+                    />
+                    <div className="flex items-center gap-2">
+                      <Button
+                        size="sm"
+                        kinds="tertiary"
+                        className="!rounded-r-none"
+                        onClick={decrementGuestCount}
+                        disabled
+                      >
+                        -
+                      </Button>
+                      <span className="px-2">{guestCount}</span>
+                      <Button
+                        size="sm"
+                        kinds="tertiary"
+                        className="!rounded-l-none"
+                        onClick={incrementGuestCount}
+                        disabled
+                      >
+                        +
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <HeaderText header="Payment Method" />
+              <div className="flex gap-4 pb-20">
+                <div className="flex gap-4 item-center bg-gray-50 border border-gray-300 p-4 rounded-xl">
+                  <RadioIcon />
+                  <BodyText>Wallet</BodyText>
+                </div>
+                <div className="flex gap-4 bg-gray-50 border border-gray-300 rounded-xl p-4">
+                  <RadioIcon />
+                  <BodyText>Credit/Debit Card</BodyText>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex-1 bg-white rounded-xl">
+            <div className="w-full space-y-6">
+              <Image
+                src={OnboardingOne}
+                alt="event image"
+                className="w-full max-h-64 rounded-t-xl object-cover"
+              />
+            </div>
+            <div className="space-y-4 p-4 sm:p-8">
+              <HeaderText
+                header="Full Moon Ceremony ~ Native Flute Meditation and Shamanic"
+                className="!w-full"
+              />
+              <BodyText className="text-p2 py-2">Order Summary</BodyText>
+              <div className="flex items-center justify-between">
+                <BodyText>Number of guest</BodyText>
+                <BodyText>2</BodyText>
+              </div>
+              <div className="flex items-center justify-between">
+                <BodyText>Entry Pass </BodyText>
+                <BodyText>2</BodyText>
+              </div>
+              <div className="flex items-center justify-between">
+                <BodyText>Gold Ticket</BodyText>
+                <BodyText>2</BodyText>
+              </div>
+              <Button onClick={openModal} size="lg" className="!w-full !mt-10">
+                Confirm Booking
+              </Button>
+            </div>
+          </div>
+        </div>
+      </Modal>
       <Header />
       <Wrapper className="sm:mt-8">
         <div className="flex flex-col md:flex-row gap-4 h-[414px]">
-          {/* First Div */}
           <div className="flex-1 flex items-center justify-center bg-gray-100 overflow-hidden">
             <Image
               src={landingPage}
@@ -95,7 +201,6 @@ export default function EventPage({ params }: EventPageProps) {
             />
           </div>
 
-          {/* Second Div */}
           <div className="flex-1 flex flex-col space-y-4">
             <div className="w-full h-[200px] overflow-hidden">
               <Image
@@ -124,10 +229,10 @@ export default function EventPage({ params }: EventPageProps) {
         </div>
         <div className="flex flex-col mt-4 sm:m-0 md:flex-row gap-4 py-4">
           <div className="flex-1">
-            <HeaderText className="!max-w-full" header={FoundItem.title} />
+            <HeaderText className="!max-w-[80%]" header={FoundItem.title} />
             <BodyText>
               Event Type{' '}
-              <span className="text-orange-700 font-semibold">
+              <span className="px-4 text-orange-700 font-semibold">
                 Kitchen Party
               </span>
             </BodyText>
@@ -263,7 +368,11 @@ export default function EventPage({ params }: EventPageProps) {
                     <Image src={MapImage} alt="map image" className="w-full" />
                     {/* <Map latitude={6.40148} longitude={3.39527} /> */}
                   </div>
-                  <Button size="lg" className="!w-full mt-32">
+                  <Button
+                    onClick={openModal}
+                    size="lg"
+                    className="!w-full mt-10 sm:mt-32"
+                  >
                     Book Occasion
                   </Button>
                 </div>
@@ -284,7 +393,7 @@ export default function EventPage({ params }: EventPageProps) {
           <hr className="text-gray-300 my-8" />
         </section>
       </Wrapper>
-      <div className="mx-4 sm:ml-6 xl:ml-8">
+      <div className="px-4 sm:pl-8 xl:pl-20">
         <Carousel
           ref={carouselRef}
           responsive={responsive}
@@ -298,7 +407,7 @@ export default function EventPage({ params }: EventPageProps) {
           ]}
         >
           {Events.map((event) => (
-            <div key={event.id} className="w-[100%] sm:w-[90%] h-[430px]">
+            <div key={event.id} className="w-[100%] sm:w-[90%] h-[400px]">
               <Link href={`${Pages.event}/${event.id}`}>
                 <EventCard {...event} />
               </Link>
