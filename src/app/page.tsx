@@ -388,23 +388,27 @@ export default function Home() {
                 afterChange={(currentSlide) => setCurrentIndex(currentSlide)}
               >
                 {Places.map((place, index) => (
-                  <div
-                    onClick={() => handleCardClick(index)}
-                    className="w-[100%] sm:w-[90%] h-[357px] bg-cover bg-center m-0 p-4 flex flex-col justify-between"
+                  <Link
                     key={place.id}
-                    style={{
-                      backgroundImage: "url('/landingPage.webp')",
-                      borderRadius: 20,
-                    }}
+                    href={`${Pages.eventsLocation}/${place.id}`}
                   >
-                    <div className="flex-grow" />
-                    <div>
-                      <BodyText className="!text-white !font-semibold">
-                        {place.city}
-                      </BodyText>
-                      <BodyText>{place.country}</BodyText>
+                    <div
+                      onClick={() => handleCardClick(index)}
+                      className="w-[100%] sm:w-[90%] h-[357px] bg-cover bg-center m-0 p-4 flex flex-col justify-between"
+                      style={{
+                        backgroundImage: "url('/landingPage.webp')",
+                        borderRadius: 20,
+                      }}
+                    >
+                      <div className="flex-grow" />
+                      <div>
+                        <BodyText className="!text-white !font-semibold">
+                          {place.city}
+                        </BodyText>
+                        <BodyText>{place.country}</BodyText>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </Carousel>
               <div className="my-10">
