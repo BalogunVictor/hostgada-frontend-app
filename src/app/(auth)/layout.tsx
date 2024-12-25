@@ -60,7 +60,7 @@ function Layout({ children }: { children: ReactNode }) {
         ) : null}
 
         <main className="flex-1 flex justify-center items-center bg-white min-h-full">
-          <div className="w-full max-w-xl">{children}</div>
+          <div className="w-full max-w-2xl">{children}</div>
         </main>
       </div>
     </Motion>
