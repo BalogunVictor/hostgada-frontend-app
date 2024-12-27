@@ -46,7 +46,7 @@ function EventCard({
       />
       <div className="space-y-2 py-4">
         <div className="flex justify-between">
-          <BodyText className="!font-semibold !text-p3 w-[75%]">
+          <BodyText className="!font-semibold !text-p3 w-[85%]">
             {title}
           </BodyText>
           <VerifiedIcon />
