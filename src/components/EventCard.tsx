@@ -4,6 +4,7 @@ import { BodyText } from '@ui/Text';
 import Image from 'next/image';
 import React from 'react';
 import LocationIcon from 'src/assets/icons/LocationIcon';
+import classNames from 'classnames';
 
 type EventCardProps = {
   image: string;
@@ -14,6 +15,7 @@ type EventCardProps = {
   eventType: string;
   price: number;
   isSoldOut: boolean;
+  className?: string;
 };
 
 function EventCard({
@@ -25,9 +27,15 @@ function EventCard({
   eventType,
   price,
   isSoldOut,
+  className,
 }: EventCardProps) {
   return (
-    <div className="w-full h-full bg-gray-100 rounded-md p-4">
+    <div
+      className={classNames(
+        'w-full h-full bg-gray-100 rounded-md p-4',
+        className
+      )}
+    >
       <Image
         src={image}
         className="rounded-md w-full"
@@ -38,7 +46,9 @@ function EventCard({
       />
       <div className="space-y-2 py-4">
         <div className="flex justify-between">
-          <BodyText className="!font-semibold !text-p3">{title}</BodyText>
+          <BodyText className="!font-semibold !text-p3 w-[75%]">
+            {title}
+          </BodyText>
           <VerifiedIcon />
         </div>
         <div className="flex items-center gap-2">

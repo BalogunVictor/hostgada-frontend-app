@@ -25,6 +25,7 @@ import { useWindowSize } from 'src/hooks/useWindowSize';
 import Motion from 'src/layout/motion';
 import Pages from 'src/routes/page.routes';
 import { Modal } from '@ui/Modal';
+import Layout from 'src/layout';
 import specialFeatures from '../../../dummyFeatures.json';
 
 interface EventProps {
@@ -87,7 +88,7 @@ export default function EventPage({ params }: EventPageProps) {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <Motion>
+    <Layout>
       <Modal
         className="m-5 h-fit !max-w-6xl"
         isOpen={isModalOpen}
@@ -190,7 +191,6 @@ export default function EventPage({ params }: EventPageProps) {
           </div>
         </div>
       </Modal>
-      <Header />
       <Wrapper className="sm:mt-8">
         <div className="flex flex-col md:flex-row gap-4 h-[414px]">
           <div className="flex-1 flex items-center justify-center bg-gray-100 overflow-hidden">
@@ -415,9 +415,6 @@ export default function EventPage({ params }: EventPageProps) {
           ))}
         </Carousel>
       </div>
-      <footer>
-        <Footer />
-      </footer>
-    </Motion>
+    </Layout>
   );
 }

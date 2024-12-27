@@ -53,6 +53,17 @@
       "eventType": "House Party",
       "price": 500000,
       "isSoldOut": true
+    },
+    {
+      "id": 6,
+      "image": "/landingPage.webp",
+      "title": "Full Moon Ceremony ~ Native Flute Meditation and Shamanic",
+      "location": "Victoria Island. Lagos",
+      "date": "Tomorrow",
+      "time": "9:00AM GMT+1",
+      "eventType": "House Party",
+      "price": 500000,
+      "isSoldOut": true
     }
   ]
   

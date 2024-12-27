@@ -19,6 +19,7 @@ const Pages = {
   resetPassword: '/reset-password',
   resetCreated: '/reset-created',
   event: '/event',
+  eventsLocation: '/events-location',
 };
 
 export default Pages;
