@@ -6,12 +6,11 @@ import StarIcon from '@asset/icons/StarIcon';
 import { landingPage, MapImage, OnboardingOne } from '@asset/images';
 import { responsive } from '@components/BreakPoints';
 import EventCard from '@components/EventCard';
-import Footer from '@components/Footer';
-import Header from '@components/Header';
 import ScrollsButton from '@components/ScrollsButton';
 import { Button } from '@ui/Button';
 import { HeaderText } from '@ui/HeaderText';
 import { Input } from '@ui/Input';
+import { Modal } from '@ui/Modal';
 import { BodyText } from '@ui/Text';
 import { Wrapper } from '@ui/Wrapper';
 import Image from 'next/image';
@@ -22,10 +21,8 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Events from 'src/dummyEvents.json';
 import { useWindowSize } from 'src/hooks/useWindowSize';
-import Motion from 'src/layout/motion';
-import Pages from 'src/routes/page.routes';
-import { Modal } from '@ui/Modal';
 import Layout from 'src/layout';
+import Pages from 'src/routes/page.routes';
 import specialFeatures from '../../../dummyFeatures.json';
 
 interface EventProps {

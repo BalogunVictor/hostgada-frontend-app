@@ -20,6 +20,8 @@ const Pages = {
   resetCreated: '/reset-created',
   event: '/event',
   eventsLocation: '/events-location',
+  guestDashboard: '/dashboard',
+  hostDashboard: '/dashboard/host',
 };
 
 export default Pages;

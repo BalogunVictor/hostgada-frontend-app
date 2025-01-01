@@ -4,20 +4,19 @@ import EventCard from '@components/EventCard';
 import FilterDropDown from '@components/FilterDropDown';
 import ScrollsButton from '@components/ScrollsButton';
 import { useWindowSize } from '@hook/useWindowSize';
-import { HeaderText } from '@ui/HeaderText';
 import { BodyText, Title } from '@ui/Text';
 import { Wrapper } from '@ui/Wrapper';
 import Link from 'next/link';
 import { FaChevronDown } from 'react-icons/fa6';
+import Events from 'src/dummyEvents.json';
 import Places from 'src/dummyPlaces.json';
 import Layout from 'src/layout';
 import Pages from 'src/routes/page.routes';
-import Events from 'src/dummyEvents.json';
 
 interface EventsLocationProps {
   params: { id: string };
 }
-function page({ params }: EventsLocationProps) {
+function Page({ params }: EventsLocationProps) {
   const { width } = useWindowSize();
   const numericId = parseInt(params.id, 10);
   const FoundItem = Places.find((place: any) => place.id === numericId);
@@ -62,7 +61,7 @@ function page({ params }: EventsLocationProps) {
         </div>
         <div className="bg-orange-50 w-full rounded-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 p-4 sm:p-8">
           {Events.map((event) => (
-            <Link href={`${Pages.event}/${event.id}`}>
+            <Link key={event.id} href={`${Pages.event}/${event.id}`}>
               <EventCard className="!bg-white" {...event} />
             </Link>
           ))}
@@ -72,4 +71,4 @@ function page({ params }: EventsLocationProps) {
   );
 }
 
-export default page;
+export default Page;

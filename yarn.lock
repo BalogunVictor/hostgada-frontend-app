@@ -4019,6 +4019,13 @@ react-multi-carousel@^2.8.5:
   resolved "https://registry.npmjs.org/react-multi-carousel/-/react-multi-carousel-2.8.5.tgz"
   integrity sha512-C5DAvJkfzR2JK9YixZ3oyF9x6R4LW6nzTpIXrl9Oujxi4uqP9SzVVCjl+JLM3tSdqdjAx/oWZK3dTVBSR73Q+w==
 
+react-responsive-pagination@^2.9.1:
+  version "2.9.1"
+  resolved "https://registry.npmjs.org/react-responsive-pagination/-/react-responsive-pagination-2.9.1.tgz"
+  integrity sha512-Noz5mfhnUEVgIU4cl9wK0T3BsKXAWjeAYyxrjVs00j8OwNRodTvLepGb0jA9OFGc8w+SC+o1Yl+LfmRMoauCMw==
+  dependencies:
+    prop-types "^15.8.1"
+
 react-select@^5.8.3:
   version "5.8.3"
   resolved "https://registry.npmjs.org/react-select/-/react-select-5.8.3.tgz"
