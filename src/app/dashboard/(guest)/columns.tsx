@@ -1,6 +1,7 @@
 import { createColumnHelper } from '@tanstack/react-table';
 import { Button } from '@ui/Button';
 import { WordLimit } from '@ui/WordLimit';
+import { MdOutlineFileDownload } from 'react-icons/md';
 
 interface GuestDashboardPayload {
   date: string;
@@ -30,7 +31,14 @@ export const columns = [
     header: 'Receipt',
     id: 'actions',
     cell: () => {
-      return <Button kinds="tertiary">Download</Button>;
+      return (
+        <div className="flex items-center">
+          <Button kinds="tertiary" className="hidden md:block">
+            Download
+          </Button>
+          <MdOutlineFileDownload className="block md:hidden text-xl" />
+        </div>
+      );
     },
   }),
 ];
