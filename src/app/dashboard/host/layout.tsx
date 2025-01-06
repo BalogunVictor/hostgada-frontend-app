@@ -9,7 +9,7 @@ function Layout({ children }: { children: ReactNode }) {
   return (
     <Motion>
       <div className="w-full flex">
-        <div className="w-64">
+        <div className="lg:w-64 xl:w-80">
           <SideBar />
         </div>
         <div className="w-full space-y-4">

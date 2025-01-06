@@ -27,6 +27,7 @@ const Pages = {
   hostDashboardBookings: '/dashboard/host/bookings',
   hostDashboardWallet: '/dashboard/host/wallet',
   hostDashboardAnalytics: '/dashboard/host/analytics',
+  hostDashboardRatings: '/dashboard/host/ratings',
 };
 
 export default Pages;

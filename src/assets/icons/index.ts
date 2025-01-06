@@ -11,3 +11,6 @@ export { default as WalletNavIcon } from './solar_wallet-outline.svg';
 export { default as EventsNavIcon } from './myevents.svg';
 export { default as ClockNavIcon } from './clock.svg';
 export { default as SettingsNavIcon } from './setting.svg';
+export { default as LogoutNavIcon } from './logout.svg';
+export { default as HelpNavIcon } from './help.svg';
+export { default as BookingsNavIcon } from './bookings.svg';
