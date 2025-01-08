@@ -7,3 +7,5 @@ export { default as OnboardingOne } from './OnboardingOne.webp';
 export { default as OnboardingTwo } from './OnboardingTwo.webp';
 export { default as OnboardingThree } from './OnboardingThree.webp';
 export { default as MapImage } from './mapImage.png';
+export { default as NigeriaImage } from './nigeria.png';
+export { default as ProfileImage } from './Ellipse755.png';

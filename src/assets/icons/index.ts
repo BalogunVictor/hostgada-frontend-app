@@ -14,3 +14,4 @@ export { default as SettingsNavIcon } from './setting.svg';
 export { default as LogoutNavIcon } from './logout.svg';
 export { default as HelpNavIcon } from './help.svg';
 export { default as BookingsNavIcon } from './bookings.svg';
+export { default as ChevronDownIcon } from './chevronDown.svg';
