@@ -3,11 +3,18 @@ import classNames from 'classnames';
 
 type TitleProps = {
   children: ReactNode;
+  dashboard?: boolean;
 } & DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
-export function Title({ className, children, ...rest }: TitleProps) {
+export function Title({ className, children, dashboard, ...rest }: TitleProps) {
   return (
-    <h2 className={classNames(className, 'text-h3 sm:text-h1')} {...rest}>
+    <h2
+      className={classNames(className, 'text-h3', {
+        'sm:text-h1': !dashboard,
+        'sm:text-h2 text-gray-600 py-4': dashboard,
+      })}
+      {...rest}
+    >
       {children}
     </h2>
   );

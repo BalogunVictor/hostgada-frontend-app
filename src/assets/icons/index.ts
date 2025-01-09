@@ -15,3 +15,7 @@ export { default as LogoutNavIcon } from './logout.svg';
 export { default as HelpNavIcon } from './help.svg';
 export { default as BookingsNavIcon } from './bookings.svg';
 export { default as ChevronDownIcon } from './chevronDown.svg';
+export { default as TotalTicketsIcon } from './TotalTickets.svg';
+export { default as TotalEarningIcon } from './TotalEarning.svg';
+export { default as TotalEventsIcon } from './TotalEvents.svg';
+export { default as EmptyEventIcon } from './emptyEvent.svg';

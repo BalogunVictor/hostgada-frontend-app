@@ -26,23 +26,23 @@ function DashboardHeader() {
   ];
 
   return (
-    <div className="w-full h-20 flex items-center gap-3 justify-center md:justify-between px-2 lg:px-6">
-      <span className="lg:hidden">
-        <HiMenuAlt4 className="text-orange-700 text-xl" />
+    <div className="w-full h-20 flex items-center gap-3 justify-between px-2 lg:px-6">
+      <span className="sm:hidden">
+        <HiMenuAlt4 className="text-orange-700 text-3xl" />
       </span>
       <Input
         rounded
-        className="w-24 lg:w-[400px] 2xl:w-[700px]"
+        className="w-[200px] lg:w-[400px] 2xl:w-[700px]"
         intent="fill"
         placeholder="Search..."
         leftIcon={<SearchIcon className="text-gray-400" />}
       />
-      <div className="flex items-center gap-2 lg:gap-6">
+      <div className="hidden md:flex items-center gap-2 lg:gap-6">
         <Button size="sm" kinds="tertiary">
           Host People
         </Button>
         <NotificationIcon className="text-3xl" />
-        <div className="hidden lg:flex">
+        <div className="lg:flex">
           <DropMenu
             options={customOptions}
             handleClick={handleOptionClick}
