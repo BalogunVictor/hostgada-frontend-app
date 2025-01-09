@@ -19,3 +19,5 @@ export { default as TotalTicketsIcon } from './TotalTickets.svg';
 export { default as TotalEarningIcon } from './TotalEarning.svg';
 export { default as TotalEventsIcon } from './TotalEvents.svg';
 export { default as EmptyEventIcon } from './emptyEvent.svg';
+export { default as TrendingDownIcon } from './ic-trending-down-24px.svg';
+export { default as TrendingUpIcon } from './ic-trending-up-24px.svg';

@@ -2,6 +2,8 @@ import {
   TotalEarningIcon,
   TotalEventsIcon,
   TotalTicketsIcon,
+  TrendingDownIcon,
+  TrendingUpIcon,
 } from '@asset/icons';
 import Card from '@components/Card';
 import { BodyText, Title } from '@ui/Text';
@@ -18,6 +20,13 @@ function Inventory() {
           </div>
           <TotalEventsIcon className="text-6xl" />
         </div>
+        <div className="flex items-center gap-1">
+          <TrendingUpIcon />
+          <div className="flex gap-1">
+            <BodyText className="text-green-500">8.5%</BodyText>
+            <BodyText>Up from yesterday</BodyText>
+          </div>
+        </div>
       </Card>
       <Card className="min-h-40">
         <div className="flex justify-between">
@@ -27,6 +36,13 @@ function Inventory() {
           </div>
           <TotalTicketsIcon className="text-6xl" />
         </div>
+        <div className="flex items-center gap-1">
+          <TrendingUpIcon />
+          <div className="flex gap-1">
+            <BodyText className="text-green-500">8.5%</BodyText>
+            <BodyText>Up from yesterday</BodyText>
+          </div>
+        </div>
       </Card>
       <Card className="min-h-40">
         <div className="flex justify-between">
@@ -35,6 +51,13 @@ function Inventory() {
             <Title dashboard>40,689</Title>
           </div>
           <TotalEarningIcon className="text-6xl" />
+        </div>
+        <div className="flex items-center gap-1">
+          <TrendingDownIcon />
+          <div className="flex gap-1">
+            <BodyText className="text-red-500">8.5%</BodyText>
+            <BodyText>Down from yesterday</BodyText>
+          </div>
         </div>
       </Card>
     </div>
