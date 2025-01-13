@@ -33,6 +33,7 @@ const buttonStyle = cva(
         lg: 'px-12 py-4',
         md: 'px-8 py-2',
         sm: 'px-4 py-2',
+        xsm: 'px-2 !text-p4',
       },
     },
   }

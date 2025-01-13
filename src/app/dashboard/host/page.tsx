@@ -118,50 +118,100 @@ function Host() {
             <Inventory />
             <section>{empty ? <EmptyEventCard /> : <EventCard />}</section>
           </div>
-          <div className="w-full md:max-w-72 space-y-4">
-            <Card className="text-gray-500">
-              <BodyText>Your Checklist</BodyText>
-              <div className="py-4 space-y-3">
-                <div className="flex gap-2">
-                  <CheckBoxIcon className="text-3xl" />
-                  <div className="space-y-2">
-                    <BodyText className="font-bold">Host an Occasion</BodyText>
-                    <BodyText>
-                      Publish an event to reach to your targeted audience
-                    </BodyText>
+          {empty ? (
+            <div className="w-full md:max-w-72 space-y-4">
+              <Card>
+                <BodyText>Your Checklist</BodyText>
+                <div className="py-4 space-y-3">
+                  <div className="flex gap-2">
+                    <CheckBoxIcon className="text-3xl" />
+                    <div className="space-y-2">
+                      <BodyText className="font-bold">
+                        Host an Occasion
+                      </BodyText>
+                      <BodyText>
+                        Publish an event to reach to your targeted audience
+                      </BodyText>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <CheckBoxIcon className="text-3xl" />
+                    <div className="space-y-2">
+                      <BodyText className="font-bold">
+                        Host an Occasion
+                      </BodyText>
+                      <BodyText>
+                        Publish an event to reach to your targeted audience
+                      </BodyText>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <CheckBoxIcon className="text-3xl" />
+                    <div className="space-y-2">
+                      <BodyText className="font-bold">
+                        Host an Occasion
+                      </BodyText>
+                      <BodyText>
+                        Publish an event to reach to your targeted audience
+                      </BodyText>
+                    </div>
                   </div>
                 </div>
-                <div className="flex gap-2">
-                  <CheckBoxIcon className="text-3xl" />
-                  <div className="space-y-2">
-                    <BodyText className="font-bold">Host an Occasion</BodyText>
-                    <BodyText>
-                      Publish an event to reach to your targeted audience
-                    </BodyText>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  <CheckBoxIcon className="text-3xl" />
-                  <div className="space-y-2">
-                    <BodyText className="font-bold">Host an Occasion</BodyText>
-                    <BodyText>
-                      Publish an event to reach to your targeted audience
-                    </BodyText>
-                  </div>
-                </div>
-              </div>
-            </Card>
+              </Card>
 
-            <Card className="text-gray-500">
-              <BodyText className="font-semibold">Pending Booking</BodyText>
-              <div className="w-full h-full flex flex-col justify-center items-center text-center gap-2 p-4">
-                <EmptyBookingIcon className="text-5xl" />
-                <BodyText>
-                  You would see your request bookings for approvals here
-                </BodyText>
-              </div>
-            </Card>
-          </div>
+              <Card className="text-gray-500">
+                <BodyText className="font-semibold">Pending Booking</BodyText>
+                <div className="w-full h-full flex flex-col justify-center items-center text-center gap-2 p-4">
+                  <EmptyBookingIcon className="text-5xl" />
+                  <BodyText>
+                    You would see your request bookings for approvals here
+                  </BodyText>
+                </div>
+              </Card>
+            </div>
+          ) : (
+            <div className="w-full md:max-w-72">
+              <Card className="text-gray-500">
+                <div className="flex items-center justify-between">
+                  <BodyText>Pending Booking</BodyText>
+                  <Button
+                    kinds="tertiary"
+                    size="sm"
+                    className="!bg-transparent !text-gray-600 border !border-gray-600"
+                  >
+                    See all
+                  </Button>
+                </div>
+                <div className="py-6">
+                  <div className="flex items-center gap-4">
+                    <Image
+                      className="w-14 h-20 rounded-lg object-cover"
+                      src={landingPage}
+                      alt="eventImage"
+                    />
+                    <div className="space-y-2">
+                      <div>
+                        <BodyText>Catherine Sandra</BodyText>
+                        <BodyText>2x Platinum tickets</BodyText>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Button
+                          kinds="tertiary"
+                          size="xsm"
+                          className="!bg-transparent !text-gray-600 border !border-gray-600"
+                        >
+                          View Profile
+                        </Button>
+                        <Button size="xsm" kinds="tertiary">
+                          Approve
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          )}
         </div>
       </Wrapper>
     </Motion>
