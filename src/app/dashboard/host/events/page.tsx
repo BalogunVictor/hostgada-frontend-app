@@ -101,7 +101,7 @@ function Events() {
   return (
     <Motion>
       <Wrapper dashboard>
-        <div className="flex items-center text-gray-400 gap-2">
+        <div className="flex items-center text-gray-400 gap-2 py-4">
           <ChevronLeftIcon />
           <BodyText>Back</BodyText>
         </div>
