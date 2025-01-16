@@ -26,9 +26,7 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>(
           {...rest}
         />{' '}
         {label && (
-          <p className="block text-sm font-medium leading-6 text-gray-700">
-            {label}
-          </p>
+          <p className="block text-sm font-medium leading-6">{label}</p>
         )}
       </label>
     );
