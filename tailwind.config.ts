@@ -61,7 +61,7 @@ const config: Config = {
         h7: ['12px', { fontWeight: '600', lineHeight: '18px' }],
         p1: ['15px', { fontWeight: '400', lineHeight: '24px' }],
         p2: ['15px', { fontWeight: '500', lineHeight: '24px' }],
-        p3: ['18px', { fontWeight: '400', lineHeight: '24px' }],
+        p3: ['20px', { fontWeight: '400', lineHeight: '24px' }],
         p4: ['12px', { fontWeight: '400', lineHeight: '30px' }],
       },
     },
