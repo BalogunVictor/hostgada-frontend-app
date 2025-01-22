@@ -26,3 +26,4 @@ export { default as EmptyBookingIcon } from './emptybooking.svg';
 export { default as EyeIcon } from './eye.svg';
 export { default as SpecialIcon } from './marketeq_caution-sign-circle.svg';
 export { default as CongratulationsIcon } from './congratulation.svg';
+export { default as ShareIcon } from './shareIcon.svg';

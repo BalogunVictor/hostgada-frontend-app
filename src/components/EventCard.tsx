@@ -1,3 +1,5 @@
+'use client';
+
 import { VerifiedIcon } from '@asset/icons';
 import { Button } from '@ui/Button';
 import { BodyText } from '@ui/Text';
@@ -16,6 +18,8 @@ type EventCardProps = {
   price: number;
   isSoldOut: boolean;
   className?: string;
+  handleEdit?: () => void;
+  handleDelete?: () => void;
 };
 
 function EventCard({
@@ -28,6 +32,8 @@ function EventCard({
   price,
   isSoldOut,
   className,
+  handleEdit,
+  handleDelete,
 }: EventCardProps) {
   return (
     <div
@@ -59,14 +65,16 @@ function EventCard({
           <BodyText>
             {date} <span className="font-semibold px-1">{time}</span>
           </BodyText>
-          <Button
-            size="sm"
-            kinds="tertiary"
-            className="!text-black"
-            disabled={isSoldOut}
-          >
-            {isSoldOut ? 'Sold out' : 'Buy now'}
-          </Button>
+          {handleEdit ? null : (
+            <Button
+              size="sm"
+              kinds="tertiary"
+              className="!text-black"
+              disabled={isSoldOut}
+            >
+              {isSoldOut ? 'Sold out' : 'Buy now'}
+            </Button>
+          )}
         </div>
         <div className="flex items-center justify-between">
           <BodyText>
@@ -74,6 +82,20 @@ function EventCard({
           </BodyText>
           <span className="font-semibold">{`#${price.toLocaleString()}`}</span>
         </div>
+        {handleEdit && (
+          <div className="flex gap-3 pt-2">
+            <Button
+              kinds="tertiary"
+              className="!bg-transparent !text-gray-600 border !border-gray-600"
+              onClick={handleDelete}
+            >
+              delete
+            </Button>
+            <Button onClick={handleEdit} className="!w-full" kinds="tertiary">
+              Edit
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -47,7 +47,7 @@ function Guest() {
 
   return (
     <Layout>
-      <Wrapper>
+      <Wrapper className="!px-8">
         <div className="mt-10 space-y-6">
           <div className="flex flex-col sm:flex-row items-center gap-12">
             <div className="shadow-md rounded-xl p-4 space-y-4 w-full sm:w-96">

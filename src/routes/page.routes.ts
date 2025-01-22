@@ -24,6 +24,8 @@ const Pages = {
   hostDashboard: '/dashboard/host',
   hostDashboardSettings: '/dashboard/host/settings',
   hostDashboardEvents: '/dashboard/host/events',
+  hostDashboardEventListing: '/dashboard/host/events/event-listings',
+  hostDashboardEditEvents: '/dashboard/host/events/edit',
   hostDashboardBookings: '/dashboard/host/bookings',
   hostDashboardWallet: '/dashboard/host/wallet',
   hostDashboardAnalytics: '/dashboard/host/analytics',

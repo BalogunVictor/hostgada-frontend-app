@@ -13,9 +13,11 @@ import { BodyText, Title } from '@ui/Text';
 import { TextArea } from '@ui/Textarea';
 import { Wrapper } from '@ui/Wrapper';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import Switch from 'react-switch';
 import Motion from 'src/layout/motion';
+import Pages from 'src/routes/page.routes';
 
 function StepOne({ onNext }: { onNext: () => void }) {
   const [images, setImages] = useState<(string | File)[]>([]);
@@ -40,7 +42,6 @@ function StepOne({ onNext }: { onNext: () => void }) {
           kinds="tertiary"
           size="lg"
           className="!bg-transparent !text-gray-600 border !border-gray-600"
-          onClick={handleSaveProgress}
         >
           Save Progress
         </Button>
@@ -104,6 +105,9 @@ function StepOne({ onNext }: { onNext: () => void }) {
           />
         </div>
       </div>
+      <Button onClick={handleSaveProgress} className="mt-10 !px-20">
+        Continue
+      </Button>
     </Card>
   );
 }
@@ -242,9 +246,11 @@ function StepFour() {
               <br /> and it is now available for bookings{' '}
             </BodyText>
           </div>
-          <Button size="lg" className="!w-full">
-            View Listing
-          </Button>
+          <Link className="w-full" href={Pages.hostDashboardEventListing}>
+            <Button size="lg" className="!w-full">
+              View Listing
+            </Button>
+          </Link>
         </div>
       </Modal>
       <Card className="xl:p-10">
