@@ -135,7 +135,7 @@ function Layout({ children }: { children: ReactNode }) {
         {/* Main content */}
         <div className="flex-1 sm:ml-64 2xl:ml-80 space-y-4">
           <HostHeader />
-          <main className="bg-gray-200 h-screen">{children}</main>
+          <main className="bg-gray-200 w-full h-screen">{children}</main>
         </div>
       </div>
     </Motion>

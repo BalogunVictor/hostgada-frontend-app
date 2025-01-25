@@ -30,6 +30,7 @@ const Pages = {
   hostDashboardWallet: '/dashboard/host/wallet',
   hostDashboardAnalytics: '/dashboard/host/analytics',
   hostDashboardRatings: '/dashboard/host/ratings',
+  hostDashboardBuyerProfie: '/dashboard/host/buyer-profile',
 };
 
 export default Pages;
