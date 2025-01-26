@@ -1,17 +1,17 @@
 'use client';
 
-import {
-  ChevronLeftIcon,
-  // DoubleQuotesIcon, StarIcon
-} from '@asset/icons';
+import { CancelIcon, ChevronLeftIcon } from '@asset/icons';
 import { landingPage } from '@asset/images';
 // import { responsive, reviewResponsive } from '@components/BreakPoints';
 // import Card from '@components/Card';
 import { Button } from '@ui/Button';
+import { Modal } from '@ui/Modal';
 import { BodyText, Title } from '@ui/Text';
+import { TextArea } from '@ui/Textarea';
 import { Wrapper } from '@ui/Wrapper';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 // import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Motion from 'src/layout/motion';
@@ -63,9 +63,33 @@ import Pages from 'src/routes/page.routes';
 //   },
 // ];
 
-function page() {
+function Page() {
+  const [toggleButton, setToggleButton] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   return (
     <Motion>
+      <Modal className="!bg-white" isOpen={isModalOpen} onClose={closeModal}>
+        <div className="p-4 space-y-4">
+          <div className="flex justify-between">
+            <div className="space-y-2">
+              <BodyText className="text-p3 font-bold">
+                Share your view!
+              </BodyText>
+              <BodyText className="text-gray-400">
+                Kindly share your opinion about the occasion
+              </BodyText>
+            </div>
+            <div className="cursor-pointer" onClick={closeModal}>
+              <CancelIcon className="text-6xl" />
+            </div>
+          </div>
+          <TextArea label="Description" />
+
+          <Button>Submit</Button>
+        </div>
+      </Modal>
       <div className="w-full" />
       <Wrapper dashboard>
         <div className="flex items-center text-gray-400 gap-2 py-4">
@@ -75,7 +99,7 @@ function page() {
           </Link>
         </div>
         <Title dashboard>Buyer Profile</Title>
-        <div className="flex justify-between py-4">
+        <div className="flex items-start justify-between py-4">
           <div className="flex gap-8">
             <Image
               src={landingPage}
@@ -107,26 +131,35 @@ function page() {
               </div>
             </div>
           </div>
-
-          <div className="space-y-2">
-            <div>
-              <BodyText className="font-bold text-gray-500">
-                2x Platinum tickets
-              </BodyText>
+          {toggleButton ? (
+            <Button onClick={openModal} size="sm" kinds="tertiary">
+              Add Review
+            </Button>
+          ) : (
+            <div className="space-y-2">
+              <div>
+                <BodyText className="font-bold text-gray-500">
+                  2x Platinum tickets
+                </BodyText>
+              </div>
+              <div className="flex items-center gap-2">
+                <Button
+                  kinds="tertiary"
+                  size="sm"
+                  className="!bg-transparent !text-gray-600 border !border-gray-600"
+                >
+                  Decline
+                </Button>
+                <Button
+                  onClick={() => setToggleButton(true)}
+                  size="sm"
+                  kinds="tertiary"
+                >
+                  Approve
+                </Button>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Button
-                kinds="tertiary"
-                size="sm"
-                className="!bg-transparent !text-gray-600 border !border-gray-600"
-              >
-                Decline
-              </Button>
-              <Button size="sm" kinds="tertiary">
-                Approve
-              </Button>
-            </div>
-          </div>
+          )}
         </div>
         <Title dashboard>Reviews and Ratings</Title>
         {/* <div className="w-[57%]">
@@ -172,4 +205,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
