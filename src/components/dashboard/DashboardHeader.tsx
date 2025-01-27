@@ -27,7 +27,7 @@ function DashboardHeader() {
 
   return (
     <div className="w-full h-20 flex items-center gap-3 justify-between px-2 lg:px-6">
-      <span className="sm:hidden">
+      <span className="lg:hidden">
         <HiMenuAlt4 className="text-orange-700 text-3xl" />
       </span>
       <Input

@@ -54,15 +54,15 @@ function Layout({ children }: { children: ReactNode }) {
 
   return (
     <Motion>
-      <div className="flex w-full">
+      <div className="w-full h-screen flex overflow-hidden">
         {/* Sidebar */}
-        <div className="hidden fixed inset-0 w-64 2xl:w-80 h-screen sm:flex flex-col shadow-xl bg-white">
+        <div className="hidden xl:w-[20%] 2xl:w-[15%] lg:flex flex-col shadow-xl bg-white h-full">
           <div className="flex justify-center items-center my-8">
             <Link href="/">
               <HostgadaIcon />
             </Link>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 overflow-hidden">
             <ul>
               {links.map((link) => {
                 const isActive = activeLink === link.href;
@@ -133,9 +133,11 @@ function Layout({ children }: { children: ReactNode }) {
         </div>
 
         {/* Main content */}
-        <div className="flex-1 sm:ml-64 2xl:ml-80 space-y-4">
+        <div className="w-full xl:w-[80%] 2xl:w-[85%] flex flex-col h-full overflow-hidden">
           <HostHeader />
-          <main className="bg-gray-200 w-full h-screen">{children}</main>
+          <main className="bg-gray-200 w-full h-full overflow-y-auto">
+            {children}
+          </main>
         </div>
       </div>
     </Motion>

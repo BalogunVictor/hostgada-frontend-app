@@ -1,9 +1,14 @@
 'use client';
 
-import { CancelIcon, ChevronLeftIcon } from '@asset/icons';
+import {
+  CancelIcon,
+  ChevronLeftIcon,
+  DoubleQuotesIcon,
+  StarIcon,
+} from '@asset/icons';
 import { landingPage } from '@asset/images';
-// import { responsive, reviewResponsive } from '@components/BreakPoints';
-// import Card from '@components/Card';
+import { reviewResponsive } from '@components/BreakPoints';
+import Card from '@components/Card';
 import { Button } from '@ui/Button';
 import { Modal } from '@ui/Modal';
 import { BodyText, Title } from '@ui/Text';
@@ -12,56 +17,56 @@ import { Wrapper } from '@ui/Wrapper';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-// import Carousel from 'react-multi-carousel';
+import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Motion from 'src/layout/motion';
 import Pages from 'src/routes/page.routes';
 
-// const reviews = [
-//   {
-//     id: 1,
-//     name: 'David Cath',
-//     image: landingPage,
-//     review:
-//       'Can you tell me a bit more about the type of review? Is it a general positive review, feedback on a project, or something specific to their work or collaboration?',
-//     rating: 5,
-//   },
-//   {
-//     id: 2,
-//     name: 'Sarah Lee',
-//     image: landingPage,
-//     review: 'Amazing experience! Would highly recommend to others.',
-//     rating: 4,
-//   },
-//   {
-//     id: 3,
-//     name: 'John Smith',
-//     image: landingPage,
-//     review: 'Very professional and great to work with. Highly satisfied.',
-//     rating: 5,
-//   },
-//   {
-//     id: 4,
-//     name: 'Emily Doe',
-//     image: landingPage,
-//     review: 'Good work, but there’s room for improvement in communication.',
-//     rating: 3,
-//   },
-//   {
-//     id: 5,
-//     name: 'Michael Brown',
-//     image: landingPage,
-//     review: 'Exceeded expectations! Great attention to detail.',
-//     rating: 5,
-//   },
-//   {
-//     id: 6,
-//     name: 'Michael Brown',
-//     image: landingPage,
-//     review: 'Exceeded expectations! Great attention to detail.',
-//     rating: 5,
-//   },
-// ];
+const reviews = [
+  {
+    id: 1,
+    name: 'David Cath',
+    image: landingPage,
+    review:
+      'Can you tell me a bit more about the type of review? Is it a general positive review, feedback on a project, or something specific to their work or collaboration?',
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: 'Sarah Lee',
+    image: landingPage,
+    review: 'Amazing experience! Would highly recommend to others.',
+    rating: 4,
+  },
+  {
+    id: 3,
+    name: 'John Smith',
+    image: landingPage,
+    review: 'Very professional and great to work with. Highly satisfied.',
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: 'Emily Doe',
+    image: landingPage,
+    review: 'Good work, but there’s room for improvement in communication.',
+    rating: 3,
+  },
+  {
+    id: 5,
+    name: 'Michael Brown',
+    image: landingPage,
+    review: 'Exceeded expectations! Great attention to detail.',
+    rating: 5,
+  },
+  {
+    id: 6,
+    name: 'Michael Brown',
+    image: landingPage,
+    review: 'Exceeded expectations! Great attention to detail.',
+    rating: 5,
+  },
+];
 
 function Page() {
   const [toggleButton, setToggleButton] = useState(false);
@@ -99,7 +104,7 @@ function Page() {
           </Link>
         </div>
         <Title dashboard>Buyer Profile</Title>
-        <div className="flex items-start justify-between py-4">
+        <div className="flex flex-col xl:flex-row items-start justify-between py-4 gap-6">
           <div className="flex gap-8">
             <Image
               src={landingPage}
@@ -161,10 +166,13 @@ function Page() {
             </div>
           )}
         </div>
-        <Title dashboard>Reviews and Ratings</Title>
-        {/* <div className="w-[57%]">
+        <div className="w-full py-4 space-y-6">
+          <Title dashboard>Reviews and Ratings</Title>
           <Carousel
             responsive={reviewResponsive}
+            autoPlay
+            autoPlaySpeed={3000}
+            infinite
             removeArrowOnDeviceType={[
               'tablet',
               'mobile',
@@ -199,7 +207,7 @@ function Page() {
               </div>
             ))}
           </Carousel>
-        </div> */}
+        </div>
       </Wrapper>
     </Motion>
   );
