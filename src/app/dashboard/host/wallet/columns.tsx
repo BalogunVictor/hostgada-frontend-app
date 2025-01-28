@@ -4,26 +4,32 @@ import { WordLimit } from '@ui/WordLimit';
 import { MdOutlineFileDownload } from 'react-icons/md';
 
 interface GuestDashboardPayload {
-  date: string;
-  description: string;
-  total: string;
+  claimId: string;
+  purpose: string;
+  dateClaimed: string;
+  amount: string;
 }
 
 const columnHelper = createColumnHelper<GuestDashboardPayload>();
 
 export const columns = [
-  columnHelper.accessor('date', {
-    header: 'Date',
+  columnHelper.accessor('claimId', {
+    header: 'Clamed ID',
     cell: (info) => <span>{WordLimit(15, info.getValue())}</span>,
     enableGlobalFilter: true,
   }),
-  columnHelper.accessor('description', {
-    header: 'Description',
+  columnHelper.accessor('purpose', {
+    header: 'Purpose',
     cell: (info) => <span>{WordLimit(100, info.getValue())}</span>,
     enableGlobalFilter: true,
   }),
-  columnHelper.accessor('total', {
-    header: 'Total',
+  columnHelper.accessor('dateClaimed', {
+    header: 'Date Cliamed',
+    cell: (info) => <span>{WordLimit(15, info.getValue())}</span>,
+    enableGlobalFilter: true,
+  }),
+  columnHelper.accessor('amount', {
+    header: 'Amount',
     cell: (info) => <span>{WordLimit(15, info.getValue())}</span>,
     enableGlobalFilter: true,
   }),
