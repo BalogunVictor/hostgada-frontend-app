@@ -24,7 +24,7 @@ export const columns = [
     enableGlobalFilter: true,
   }),
   columnHelper.accessor('dateClaimed', {
-    header: 'Date Cliamed',
+    header: 'Date Claimed',
     cell: (info) => <span>{WordLimit(15, info.getValue())}</span>,
     enableGlobalFilter: true,
   }),

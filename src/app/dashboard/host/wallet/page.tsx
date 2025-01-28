@@ -17,7 +17,7 @@ import { Button } from '@ui/Button';
 import { Table } from '@ui/Table';
 import { BodyText, Title } from '@ui/Text';
 import { Wrapper } from '@ui/Wrapper';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import { useState } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import Motion from 'src/layout/motion';
@@ -53,7 +53,7 @@ function Page() {
     },
   ];
 
-  const [activeTab, setActiveTab] = useState('Claimed Fund');
+  // const [activeTab, setActiveTab] = useState('Claimed Fund');
   const [currentPage, setCurrentPage] = useState(8);
   const { width } = useWindowSize();
   const totalPages = 10;
@@ -76,7 +76,7 @@ function Page() {
       },
     },
   });
-  console.log(activeTab);
+  // console.log(activeTab);
 
   return (
     <Motion>
@@ -120,32 +120,6 @@ function Page() {
           </Card>
         </div>
 
-        {/* Tabs */}
-        <div className="flex gap-8 my-10">
-          <span
-            onClick={() => setActiveTab('Claimed Fund')}
-            className={classNames(
-              'cursor-pointer !text-h4',
-              activeTab === 'Claimed Fund'
-                ? 'text-orange-500 border-b border-orange-500'
-                : 'text-gray-600'
-            )}
-          >
-            Claimed Fund
-          </span>
-
-          <span
-            onClick={() => setActiveTab('Bank Account')}
-            className={classNames(
-              'cursor-pointer !text-h4',
-              activeTab === 'Bank Account'
-                ? 'text-orange-500 border-b border-orange-500'
-                : 'text-gray-600'
-            )}
-          >
-            Bank Account
-          </span>
-        </div>
         <Table table={table} />
         <div className="flex justify-center sm:justify-end px-4">
           <div
