@@ -18,65 +18,33 @@ import { Table } from '@ui/Table';
 import { BodyText, Title } from '@ui/Text';
 import { Wrapper } from '@ui/Wrapper';
 // import classNames from 'classnames';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import Motion from 'src/layout/motion';
 import '../../(guest)/guest.css';
 import { useWindowSize } from '@hook/useWindowSize';
+import classNames from 'classnames';
+import FilterDropDown from '@components/FilterDropDown';
 import { columns } from './columns';
+import dummyData from '../../../../../dummyData.json';
 
 function Page() {
-  const data = [
-    {
-      claimId: '#123456',
-      purpose: 'Event Booking Refund',
-      dateClaimed: '4, Nov 2024',
-      amount: '$2200',
-    },
-    {
-      claimId: '#123456',
-      purpose: 'Event Booking Refund',
-      dateClaimed: '4, Nov 2024',
-      amount: '$2200',
-    },
-    {
-      claimId: '#123456',
-      purpose: 'Event Booking Refund',
-      dateClaimed: '4, Nov 2024',
-      amount: '$2200',
-    },
-    {
-      claimId: '#123456',
-      purpose: 'Event Booking Refund',
-      dateClaimed: '4, Nov 2024',
-      amount: '$2200',
-    },
-  ];
-
-  // const [activeTab, setActiveTab] = useState('Claimed Fund');
+  const [activeTab, setActiveTab] = useState('Claimed Fund');
   const [currentPage, setCurrentPage] = useState(8);
   const { width } = useWindowSize();
   const totalPages = 10;
 
+  const memoizedData = useMemo(() => dummyData, []);
+  const memoizedColumns = useMemo(() => columns, []);
   const table = useReactTable({
-    columns,
-    data,
-    enableRowSelection: true,
+    columns: memoizedColumns,
+    data: memoizedData,
     getCoreRowModel: getCoreRowModel(),
-    // getFilteredRowModel: getFilteredRowModel(),
-    // getRowId: ({ id }) => id.toString(),
-    // onRowSelectionChange: setRowSelection,
-    // state: {
-    //   rowSelection,
-    // },
     getPaginationRowModel: getPaginationRowModel(),
     initialState: {
-      pagination: {
-        pageSize: 10,
-      },
+      pagination: { pageSize: 10 },
     },
   });
-  // console.log(activeTab);
 
   return (
     <Motion>
@@ -120,6 +88,34 @@ function Page() {
           </Card>
         </div>
 
+        <div className="flex gap-4 border-b my-4">
+          <BodyText
+            className={classNames(
+              'cursor-pointer pb-2 border-b-2 transition-colors text-p3',
+              activeTab === 'Claimed Fund'
+                ? 'border-orange-500 text-orange-500'
+                : 'border-transparent text-gray-500'
+            )}
+            onClick={() => setActiveTab('Claimed Fund')}
+          >
+            Claimed Funds
+          </BodyText>
+          <BodyText
+            className={classNames(
+              'cursor-pointer pb-2 border-b-2 transition-colors text-p3',
+              activeTab === 'Bank Account'
+                ? 'border-orange-500 text-orange-500'
+                : 'border-transparent text-gray-500'
+            )}
+            onClick={() => setActiveTab('Bank Account')}
+          >
+            Bank Account
+          </BodyText>
+        </div>
+        <div className="flex items-center justify-between ">
+          <BodyText className="text-p3 font-bold">Claimed Funds</BodyText>
+          <FilterDropDown />
+        </div>
         <Table table={table} />
         <div className="flex justify-center sm:justify-end px-4">
           <div

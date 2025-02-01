@@ -34,7 +34,7 @@ export const columns = [
     enableGlobalFilter: true,
   }),
   columnHelper.display({
-    header: 'Receipt',
+    header: 'Status',
     id: 'actions',
     cell: () => {
       return (
