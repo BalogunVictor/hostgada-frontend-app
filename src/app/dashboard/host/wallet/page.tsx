@@ -29,7 +29,7 @@ import Motion from 'src/layout/motion';
 import '../../(guest)/guest.css';
 import { Modal } from '@ui/Modal';
 import { Input } from '@ui/Input';
-import dummyData from '../../../../../dummyData.json';
+import dummyData from '../../../../../dummyWallet.json';
 import { columns } from './columns';
 
 function Page() {

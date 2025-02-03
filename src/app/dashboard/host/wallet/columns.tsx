@@ -1,20 +1,21 @@
 import { createColumnHelper } from '@tanstack/react-table';
 import { Button } from '@ui/Button';
 import { WordLimit } from '@ui/WordLimit';
-import { MdOutlineFileDownload } from 'react-icons/md';
+import classNames from 'classnames';
 
 interface GuestDashboardPayload {
   claimId: string;
   purpose: string;
   dateClaimed: string;
   amount: string;
+  status: string;
 }
 
 const columnHelper = createColumnHelper<GuestDashboardPayload>();
 
 export const columns = [
   columnHelper.accessor('claimId', {
-    header: 'Clamed ID',
+    header: 'Claimed ID',
     cell: (info) => <span>{WordLimit(15, info.getValue())}</span>,
     enableGlobalFilter: true,
   }),
@@ -33,17 +34,22 @@ export const columns = [
     cell: (info) => <span>{WordLimit(15, info.getValue())}</span>,
     enableGlobalFilter: true,
   }),
-  columnHelper.display({
+  columnHelper.accessor('status', {
     header: 'Status',
-    id: 'actions',
-    cell: () => {
+    cell: (info) => {
+      const status = info.getValue();
+
       return (
-        <div className="flex items-center">
-          <Button kinds="tertiary" className="hidden md:block">
-            Download
-          </Button>
-          <MdOutlineFileDownload className="block md:hidden text-xl" />
-        </div>
+        <Button
+          kinds="tertiary"
+          className={classNames('hover:opacity-70 !w-28 !text-sm', {
+            '!bg-green-100 border-green-500 !text-green-500':
+              status === 'successful',
+            'bg-red-100 border-red-500 !text-red-500': status === 'declined',
+          })}
+        >
+          {status.charAt(0).toUpperCase() + status.slice(1)}
+        </Button>
       );
     },
   }),
