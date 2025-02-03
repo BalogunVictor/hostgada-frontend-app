@@ -30,3 +30,4 @@ export { default as ShareIcon } from './shareIcon.svg';
 export { default as DoubleQuotesIcon } from './doubleQoutes.svg';
 export { default as StarIcon } from './star.svg';
 export { default as CancelIcon } from './Cancel.svg';
+export { default as EmptyErrorIcon } from './errorIcon.svg';

@@ -3,6 +3,7 @@
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
+  EmptyErrorIcon,
   TotalEarningIcon,
   TotalTicketsIcon,
   TrendingDownIcon,
@@ -18,15 +19,15 @@ import { Table } from '@ui/Table';
 import { BodyText, Title } from '@ui/Text';
 import { Wrapper } from '@ui/Wrapper';
 // import classNames from 'classnames';
+import FilterDropDown from '@components/FilterDropDown';
+import { useWindowSize } from '@hook/useWindowSize';
+import classNames from 'classnames';
 import { useMemo, useState } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import Motion from 'src/layout/motion';
 import '../../(guest)/guest.css';
-import { useWindowSize } from '@hook/useWindowSize';
-import classNames from 'classnames';
-import FilterDropDown from '@components/FilterDropDown';
-import { columns } from './columns';
 import dummyData from '../../../../../dummyData.json';
+import { columns } from './columns';
 
 function Page() {
   const [activeTab, setActiveTab] = useState('Claimed Fund');
@@ -112,42 +113,66 @@ function Page() {
             Bank Account
           </BodyText>
         </div>
-        <div className="flex items-center justify-between ">
-          <BodyText className="text-p3 font-bold">Claimed Funds</BodyText>
-          <FilterDropDown />
-        </div>
-        <Table table={table} />
-        <div className="flex justify-center sm:justify-end px-4">
-          <div
-            style={{
-              maxWidth: width < 650 ? '100px' : '356px',
-            }}
-            className="w-full"
-          >
-            <ResponsivePagination
-              current={currentPage}
-              total={totalPages}
-              onPageChange={setCurrentPage}
-              previousLabel={
-                <div className="flex items-center gap-2">
-                  <ChevronLeftIcon />
-                  <BodyText>Prev</BodyText>
+        {activeTab === 'Claimed Fund' && (
+          <Motion>
+            <div className="flex items-center justify-between">
+              <BodyText className="text-p3 font-bold">Claimed Funds</BodyText>
+              <FilterDropDown />
+            </div>
+
+            <Table table={table} />
+
+            <div className="flex justify-center sm:justify-end px-4">
+              <div
+                style={{
+                  maxWidth: width < 650 ? '100px' : '356px',
+                }}
+                className="w-full"
+              >
+                <ResponsivePagination
+                  current={currentPage}
+                  total={totalPages}
+                  onPageChange={setCurrentPage}
+                  previousLabel={
+                    <div className="flex items-center gap-2">
+                      <ChevronLeftIcon />
+                      <BodyText>Prev</BodyText>
+                    </div>
+                  }
+                  nextLabel={
+                    <div className="flex items-center gap-2">
+                      <BodyText>Next</BodyText>
+                      <ChevronRightIcon />
+                    </div>
+                  }
+                  className="pagination"
+                  pageItemClassName="pagination-item"
+                  pageLinkClassName="pagination-link"
+                  previousClassName="nav-link"
+                  nextClassName="nav-link"
+                />
+              </div>
+            </div>
+          </Motion>
+        )}
+        {activeTab === 'Bank Account' && (
+          <Motion>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <EmptyErrorIcon className="text-6xl" />
+                <div>
+                  <BodyText className="text-p3">
+                    You haven’t added a bank account yet
+                  </BodyText>
+                  <BodyText className="text-gray-500 text-sm">
+                    To receive funds from your event, add a bank account.
+                  </BodyText>
                 </div>
-              }
-              nextLabel={
-                <div className="flex items-center gap-2">
-                  <BodyText>Next</BodyText>
-                  <ChevronRightIcon />
-                </div>
-              }
-              className="pagination"
-              pageItemClassName="pagination-item"
-              pageLinkClassName="pagination-link"
-              previousClassName="nav-link"
-              nextClassName="nav-link"
-            />
-          </div>
-        </div>
+              </div>
+              <Button size="lg">Add Bank Account</Button>
+            </div>
+          </Motion>
+        )}
       </Wrapper>
     </Motion>
   );
