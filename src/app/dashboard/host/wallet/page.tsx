@@ -3,6 +3,7 @@
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
+  CongratulationsIcon,
   EmptyErrorIcon,
   TotalEarningIcon,
   TotalTicketsIcon,
@@ -18,7 +19,7 @@ import { Button } from '@ui/Button';
 import { Table } from '@ui/Table';
 import { BodyText, Title } from '@ui/Text';
 import { Wrapper } from '@ui/Wrapper';
-// import classNames from 'classnames';
+
 import FilterDropDown from '@components/FilterDropDown';
 import { useWindowSize } from '@hook/useWindowSize';
 import classNames from 'classnames';
@@ -26,6 +27,8 @@ import { useMemo, useState } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import Motion from 'src/layout/motion';
 import '../../(guest)/guest.css';
+import { Modal } from '@ui/Modal';
+import { Input } from '@ui/Input';
 import dummyData from '../../../../../dummyData.json';
 import { columns } from './columns';
 
@@ -34,6 +37,12 @@ function Page() {
   const [currentPage, setCurrentPage] = useState(8);
   const { width } = useWindowSize();
   const totalPages = 10;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+  const [isModal2Open, setIsModal2Open] = useState(false);
+  const open2Modal = () => setIsModal2Open(true);
+  const close2Modal = () => setIsModal2Open(false);
 
   const memoizedData = useMemo(() => dummyData, []);
   const memoizedColumns = useMemo(() => columns, []);
@@ -157,7 +166,68 @@ function Page() {
         )}
         {activeTab === 'Bank Account' && (
           <Motion>
-            <div className="flex items-center justify-between">
+            <Modal
+              className="h-fit !max-w-6xl bg-white"
+              isOpen={isModalOpen}
+              onClose={closeModal}
+            >
+              <div className="space-y-8 p-4">
+                <div className="space-y-2">
+                  <BodyText className="text-p3">
+                    In which country and currency will you be paid
+                  </BodyText>
+                  <BodyText className="text-gray-500 text-sm">
+                    Fill in the details carefully
+                  </BodyText>
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                  <Input label="Country" />
+                  <Input label="Currency" />
+                </div>
+                <div className="space-y-4">
+                  <BodyText className="text-p3">
+                    Account holder information
+                  </BodyText>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <Input label="First name" />
+                    <Input label="Last name" />
+                    <Input label="Address 1" />
+                    <Input label="Address 2" />
+                    <Input label="City" />
+                    <Input label="State" />
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <BodyText className="text-p3">Bank information</BodyText>
+                  <Input label="Bank Name" />
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <Input label="Account Number" />
+                    <Input label="Re-Enter Account Number" />
+                  </div>
+                </div>
+                <Button onClick={open2Modal} size="lg">
+                  Submit
+                </Button>
+              </div>
+            </Modal>
+            <Modal onClose={close2Modal} isOpen={isModal2Open}>
+              <div className="flex flex-col items-center text-center gap-8 p-4">
+                <div className="bg-gray-300 rounded-full overflow-hidden">
+                  <CongratulationsIcon className="text-9xl" />
+                </div>
+                <div className="space-y-2">
+                  <BodyText className="text-p3">Congratulations! </BodyText>
+                  <BodyText className="text-gray-400">
+                    Your occasion has now been published
+                    <br /> and it is now available for bookings{' '}
+                  </BodyText>
+                </div>
+                <Button onClick={open2Modal} size="lg" className="!w-full">
+                  Continue
+                </Button>
+              </div>
+            </Modal>
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <EmptyErrorIcon className="text-6xl" />
                 <div>
@@ -169,7 +239,9 @@ function Page() {
                   </BodyText>
                 </div>
               </div>
-              <Button size="lg">Add Bank Account</Button>
+              <Button onClick={openModal} size="lg">
+                Add Bank Account
+              </Button>
             </div>
           </Motion>
         )}
