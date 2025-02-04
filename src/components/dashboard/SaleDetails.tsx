@@ -1,77 +1,45 @@
-import React from 'react';
 import {
-  AreaChart,
   Area,
-  XAxis,
-  YAxis,
+  AreaChart,
   CartesianGrid,
   Tooltip,
+  XAxis,
+  YAxis,
+  ResponsiveContainer,
 } from 'recharts';
 
 function SaleDetails() {
   const data = [
-    {
-      name: 'Page A',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: 'Page B',
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: 'Page C',
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: 'Page D',
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: 'Page E',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: 'Page F',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: 'Page G',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
+    { name: 'jun', uv: 40, pv: 24, amt: 24 },
+    { name: 'july', uv: 30, pv: 14, amt: 22 },
+    { name: 'august', uv: 90, pv: 98, amt: 22 },
+    { name: 'nov', uv: 27, pv: 39, amt: 20 },
+    { name: 'dec', uv: 58, pv: 48, amt: 21 },
+    { name: 'jan', uv: 23, pv: 38, amt: 25 },
+    { name: 'feb', uv: 34, pv: 43, amt: 21 },
   ];
+
   return (
-    <div>
-      <AreaChart
-        width={500}
-        height={400}
-        data={data}
-        margin={{
-          top: 10,
-          right: 30,
-          left: 0,
-          bottom: 0,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
-      </AreaChart>
+    <div className="w-full h-[400px]">
+      <ResponsiveContainer width="100%" height="100%">
+        <AreaChart
+          data={data}
+          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+        >
+          <CartesianGrid stroke="transparent" />
+          <XAxis dataKey="name" />
+          <YAxis domain={[0, 100]} />
+          <Tooltip />
+          <Area
+            type="monotone"
+            dataKey="uv"
+            stroke="#FE791B"
+            fill="#FFF0E6"
+            dot={{ r: 5 }} // Shows points
+            activeDot={{ r: 8 }} // Highlights active point
+          />
+        </AreaChart>
+      </ResponsiveContainer>
     </div>
   );
 }

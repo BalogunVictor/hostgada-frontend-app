@@ -43,9 +43,9 @@ export const columns = [
         <Button
           kinds="tertiary"
           className={classNames('hover:opacity-70 !w-28 !text-sm', {
-            '!bg-green-100 border-green-500 !text-green-500':
+            '!bg-green-100 !border-green-500 !text-green-500':
               status === 'successful',
-            'bg-red-100 border-red-500 !text-red-500': status === 'declined',
+            '!bg-red-100 !border-red-500 !text-red-500': status === 'declined',
           })}
         >
           {status.charAt(0).toUpperCase() + status.slice(1)}

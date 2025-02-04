@@ -20,6 +20,7 @@ type EventCardProps = {
   className?: string;
   handleEdit?: () => void;
   handleDelete?: () => void;
+  soldOut?: boolean;
 };
 
 function EventCard({
@@ -34,6 +35,7 @@ function EventCard({
   className,
   handleEdit,
   handleDelete,
+  soldOut,
 }: EventCardProps) {
   return (
     <div
@@ -65,7 +67,7 @@ function EventCard({
           <BodyText>
             {date} <span className="font-semibold px-1">{time}</span>
           </BodyText>
-          {handleEdit ? null : (
+          {soldOut || handleEdit ? null : (
             <Button
               size="sm"
               kinds="tertiary"

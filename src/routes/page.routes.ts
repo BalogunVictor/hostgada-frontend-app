@@ -31,6 +31,8 @@ const Pages = {
   hostDashboardAnalytics: '/dashboard/host/analytics',
   hostDashboardRatings: '/dashboard/host/ratings',
   hostDashboardBuyerProfie: '/dashboard/host/buyer-profile',
+  hostDashboardEventPerformance: '/dashboard/host/event-performance',
+  hostDashboardEventPerformanceEvent: '/dashboard/host/event-performance/event',
 };
 
 export default Pages;
