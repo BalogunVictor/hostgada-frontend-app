@@ -7,12 +7,16 @@ import {
   EventsNavIcon,
   HelpNavIcon,
   LogoutNavIcon,
+  PowerIcon,
   RatingNavIcon,
   SettingsNavIcon,
   WalletNavIcon,
 } from '@asset/icons';
 import HostgadaIcon from '@asset/icons/HostgadaIcon';
 import HostHeader from '@components/dashboard/DashboardHeader';
+import { Button } from '@ui/Button';
+import { Modal } from '@ui/Modal';
+import { BodyText } from '@ui/Text';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { ReactNode, useState } from 'react';
@@ -21,6 +25,9 @@ import Pages from 'src/routes/page.routes';
 
 function Layout({ children }: { children: ReactNode }) {
   const [activeLink, setActiveLink] = useState(Pages.hostDashboard);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const links = [
     { icon: ClockNavIcon, name: 'Dashboard', href: Pages.hostDashboard },
@@ -54,6 +61,23 @@ function Layout({ children }: { children: ReactNode }) {
 
   return (
     <Motion>
+      <Modal onClose={closeModal} isOpen={isModalOpen}>
+        <div className="flex flex-col items-center space-y-6 text-center gap-8 p-4">
+          <div className="bg-gray-300 rounded-full overflow-hidden">
+            <PowerIcon className="text-7xl" />
+          </div>
+          <BodyText className="text-p3 font-bold">
+            {' '}
+            Are you sure you want to <br /> Log Out?
+          </BodyText>
+          <div className="flex flex-col md:flex-row items-center gap-2">
+            <Button className="!px-16">Yes</Button>
+            <Button onClick={closeModal} className="!px-16" kinds="tertiary">
+              No
+            </Button>
+          </div>
+        </div>
+      </Modal>
       <div className="w-full h-screen flex overflow-hidden">
         {/* Sidebar */}
         <div className="hidden xl:w-[20%] 2xl:w-[15%] lg:flex flex-col shadow-xl bg-white h-full">
@@ -97,7 +121,7 @@ function Layout({ children }: { children: ReactNode }) {
                   className={classNames(
                     'flex items-center md:ml-4 lg:ml-6 px-4 py-3 text-gray-500 rounded mt-2 cursor-pointer transition-colors duration-300',
                     {
-                      'text-blue-50 bg-orange-600': activeLink === '/help',
+                      'text-white bg-orange-500': activeLink === '/help',
                     }
                   )}
                   onClick={() => handleLinkClick('/help')}
@@ -111,19 +135,18 @@ function Layout({ children }: { children: ReactNode }) {
               </li>
 
               <li className="group relative mr-8">
-                <Link
-                  href="/logout"
+                <div
+                  onClick={openModal}
                   className={classNames(
                     'flex items-center md:ml-4 lg:ml-6 px-4 py-3 text-gray-500 rounded mt-2 cursor-pointer transition-colors duration-300',
                     {
-                      'text-blue-50 bg-orange-600': activeLink === '/logout',
+                      'text-white bg-orange-500': activeLink === '/logout',
                     }
                   )}
-                  onClick={() => handleLinkClick('/logout')}
                 >
                   <LogoutNavIcon />
                   <p className="mx-4 block md:hidden lg:block">Logout</p>
-                </Link>
+                </div>
                 {activeLink === '/logout' && (
                   <span className="absolute left-0 top-0 h-full w-1 rounded-tr-lg rounded-br-lg bg-orange-600 transform scale-y-100 group-hover:scale-y-100 transition-transform duration-300 origin-top" />
                 )}
