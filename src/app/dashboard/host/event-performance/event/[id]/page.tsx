@@ -3,7 +3,7 @@
 import { ChevronLeftIcon } from '@asset/icons';
 import { landingPage } from '@asset/images';
 import { Button } from '@ui/Button';
-import { BodyText, Title } from '@ui/Text';
+import { BodyText } from '@ui/Text';
 import { Wrapper } from '@ui/Wrapper';
 import Image from 'next/image';
 import Motion from 'src/layout/motion';
