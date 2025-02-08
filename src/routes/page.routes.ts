@@ -33,6 +33,7 @@ const Pages = {
   hostDashboardBuyerProfie: '/dashboard/host/buyer-profile',
   hostDashboardEventPerformance: '/dashboard/host/event-performance',
   hostDashboardAudienceBehavour: '/dashboard/host/audience-behaviour',
+  hostDashboardReviews: '/dashboard/host/reviews',
   hostDashboardEventPerformanceEvent: '/dashboard/host/event-performance/event',
 };
 
