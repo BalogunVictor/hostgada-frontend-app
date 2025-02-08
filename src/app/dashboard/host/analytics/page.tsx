@@ -12,7 +12,9 @@ import Card from '@components/Card';
 import SaleDetails from '@components/dashboard/SaleDetails';
 import { BodyText, Title } from '@ui/Text';
 import { Wrapper } from '@ui/Wrapper';
+import Link from 'next/link';
 import React from 'react';
+import Pages from 'src/routes/page.routes';
 
 function page() {
   return (
@@ -89,19 +91,23 @@ function page() {
         <SaleDetails />
       </Card>
       <div className="w-full gap-4 text-gray-600 grid sm:grid-cols-2 lg:grid-cols-3 py-6">
-        <Card className="space-y-4 pb-8">
-          <BodyText className="text-p3 font-bold">Event Performance</BodyText>
-          <BodyText className="text-sm">
-            Click to know how well your
-            <br /> event is doing
-          </BodyText>
-        </Card>
-        <Card className="space-y-4 pb-8">
-          <BodyText className="text-p3 font-bold">Audience Insights</BodyText>
-          <BodyText className="text-sm">
-            Click to see your audience <br /> behaviour
-          </BodyText>
-        </Card>
+        <Link href={Pages.hostDashboardEventPerformance}>
+          <Card className="space-y-4 pb-8">
+            <BodyText className="text-p3 font-bold">Event Performance</BodyText>
+            <BodyText className="text-sm">
+              Click to know how well your
+              <br /> event is doing
+            </BodyText>
+          </Card>
+        </Link>
+        <Link href={Pages.hostDashboardAudienceBehavour}>
+          <Card className="space-y-4 pb-8">
+            <BodyText className="text-p3 font-bold">Audience Insights</BodyText>
+            <BodyText className="text-sm">
+              Click to see your audience <br /> behaviour
+            </BodyText>
+          </Card>
+        </Link>
         <Card className="space-y-4 pb-8">
           <BodyText className="text-p3 font-bold">Financial Overview</BodyText>
           <BodyText className="text-sm">
