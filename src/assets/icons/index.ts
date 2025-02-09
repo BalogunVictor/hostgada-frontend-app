@@ -33,3 +33,6 @@ export { default as CancelIcon } from './Cancel.svg';
 export { default as EmptyErrorIcon } from './errorIcon.svg';
 export { default as PendingIcon } from './pendingIcon.svg';
 export { default as PowerIcon } from './powerIcon.svg';
+export { default as PhotoIcon } from './photoIcon.svg';
+export { default as InstagramIcon } from './ri_instagram-fill.svg';
+export { default as BinIcon } from './BinIcon.svg';
