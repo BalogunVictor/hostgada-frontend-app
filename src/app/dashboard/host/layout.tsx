@@ -117,7 +117,7 @@ function Layout({ children }: { children: ReactNode }) {
             <ul>
               <li className="group relative mr-8">
                 <Link
-                  href="/help"
+                  href={Pages.faq}
                   className={classNames(
                     'flex items-center md:ml-4 lg:ml-6 px-4 py-3 text-gray-500 rounded mt-2 cursor-pointer transition-colors duration-300',
                     {

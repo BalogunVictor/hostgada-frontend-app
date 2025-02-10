@@ -10,8 +10,10 @@ import { BodyText, Title } from '@ui/Text';
 import { TextArea } from '@ui/Textarea';
 import { Wrapper } from '@ui/Wrapper';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useRef, useState } from 'react';
 import Motion from 'src/layout/motion';
+import Pages from 'src/routes/page.routes';
 
 function Page() {
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -68,9 +70,12 @@ function Page() {
 
             <div className="flex w-full items-center gap-2">
               <PasswordInput className="w-full mr-4" disabled />
-              <BodyText className="text-orange-500 cursor-pointer mr-[-100px]">
-                Change
-              </BodyText>
+              <Link
+                className="mr-[-100px]"
+                href={Pages.hostDashboardSettingsPassword}
+              >
+                <BodyText className="text-orange-500">Change</BodyText>
+              </Link>
             </div>
 
             <div className="flex w-full gap-2">
