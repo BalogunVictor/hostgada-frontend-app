@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, {
   DetailedHTMLProps,
   forwardRef,
@@ -10,12 +11,13 @@ type Props = Omit<
 > & {
   label?: any;
   type?: 'radio' | 'checkbox';
+  className?: string;
 };
 
 export const Checkbox = forwardRef<HTMLInputElement, Props>(
-  ({ label, type = 'checkbox', ...rest }, ref) => {
+  ({ label, type = 'checkbox', className, ...rest }, ref) => {
     return (
-      <label className="flex items-center gap-3">
+      <div className={classNames('flex items-center gap-3', className)}>
         <input
           aria-describedby="comments-description"
           className="h-4 w-4 rounded border-gray-300 text-orange-800 focus:ring-orange-800"
@@ -26,9 +28,9 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>(
           {...rest}
         />{' '}
         {label && (
-          <p className="block text-sm font-medium leading-6">{label}</p>
+          <span className="block text-sm font-medium leading-6">{label}</span>
         )}
-      </label>
+      </div>
     );
   }
 );

@@ -3,6 +3,7 @@
 import { BinIcon, InstagramIcon, PhotoIcon } from '@asset/icons';
 import { landingPage } from '@asset/images';
 import { Button } from '@ui/Button';
+import { Checkbox } from '@ui/Checkbox';
 import { Input } from '@ui/Input';
 import { PasswordInput } from '@ui/PasswordInput';
 import { Select } from '@ui/Select';
@@ -95,8 +96,31 @@ function Page() {
             </div>
           </div>
         </div>
-        <div className="">
+        <div className="text-gray-500 space-y-4">
           <Title dashboard>Newsletter</Title>
+          <Checkbox
+            className="!items-start"
+            label={
+              <div className="mt-[-4px]">
+                <BodyText className="text-p3">
+                  Send me email notifications
+                </BodyText>
+                <BodyText>
+                  Sign me up to hostgada, featuring exclusive offers, latest
+                  product info,
+                  <br /> news about upcoming events and more.
+                </BodyText>
+              </div>
+            }
+          />
+          <Checkbox
+            label={
+              <div className="mt-[-4px]">
+                I agree to receive personalized email marketing messages <br />{' '}
+                from Hostgada.
+              </div>
+            }
+          />
         </div>
       </Wrapper>
     </Motion>
