@@ -101,7 +101,7 @@ function Header() {
             className="w-[400px] 2xl:w-[700px]"
             intent="fill"
             placeholder="Search..."
-            leftIcon={<SearchIcon />}
+            leftIcon={<SearchIcon className="text-orange-500" />}
             rightIcon={<SettingsIcon />}
           />
         </div>

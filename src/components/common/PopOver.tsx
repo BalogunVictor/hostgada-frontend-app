@@ -55,7 +55,7 @@ function CustomPopover({
       >
         <PopoverPanel
           className={classNames(
-            'absolute mt-10 bg-white w-[1000px] shadow-lg rounded-xl p-8 flex gap-10',
+            'absolute mt-10 bg-white w-[1000px] shadow-lg rounded-xl p-8 flex gap-10 z-50',
             panelClassName
           )}
         >
