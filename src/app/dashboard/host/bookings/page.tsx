@@ -104,7 +104,7 @@ function Page() {
           </Card>
           <div className="pt-8 space-y-6">
             <div className="flex justify-between items-center">
-              <HeaderText header="Current Sales" />
+              <HeaderText header="Sales History" />
               <FilterDropDown />
             </div>
 

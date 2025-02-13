@@ -36,7 +36,7 @@ function EventsSteps({ step }: Props) {
           </BodyText>
         </div>
       </div>
-      <hr className="h-[2px] flex-1 bg-gray-400 self-center" />
+      <hr className="h-[2px] flex-1 bg-gray-400 self-center mb-6" />
 
       {/* Ticketing */}
       <div className="flex items-center gap-4">
@@ -60,7 +60,7 @@ function EventsSteps({ step }: Props) {
           </BodyText>
         </div>
       </div>
-      <hr className="h-[2px] flex-1 bg-gray-400 self-center" />
+      <hr className="h-[2px] flex-1 bg-gray-400 self-center mb-6" />
 
       {/* Special */}
       <div className="flex items-center gap-4">
@@ -84,7 +84,7 @@ function EventsSteps({ step }: Props) {
           </BodyText>
         </div>
       </div>
-      <hr className="h-[2px] flex-1 bg-gray-400 self-center" />
+      <hr className="h-[2px] flex-1 bg-gray-400 self-center mb-6" />
 
       {/* Review */}
       <div className="flex items-center gap-4">
